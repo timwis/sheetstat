@@ -1,0 +1,17 @@
+<div class="masthead clearfix">
+  <div class="inner">
+
+    <h3 class="masthead-brand">{{ site.title }}</h3>
+
+    <nav>
+      <ul class="nav masthead-nav">
+        {% for page in site.pages %}
+          {% if page.title %}
+          <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+  </div>
+</div>
