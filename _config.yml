@@ -7,7 +7,7 @@
 
 # Site settings
 title: Sample Dashboard
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/sheetstat" # the subpath of your site, e.g. /blog
 
 # Build settings
 markdown: kramdown
