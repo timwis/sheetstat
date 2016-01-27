@@ -3,17 +3,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="">
 
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ site.baseurl }}/css/cover.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/css/custom.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="//www.amcharts.com/lib/3/amcharts.js"></script>
   <script src="//www.amcharts.com/lib/3/serial.js"></script>
-  <script src="//www.amcharts.com/lib/3/themes/dark.js"></script>
+  <script src="//www.amcharts.com/lib/3/themes/light.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/plugins/responsive/responsive.min.js"></script>
   <script src="{{ site.baseurl }}/scripts/container.js"></script>
 </head>
