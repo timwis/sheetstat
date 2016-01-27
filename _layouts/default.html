@@ -4,23 +4,27 @@
   {% include head.html %}
 
   <body>
+    <div class="container">
 
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
+      {% include header.html %}
 
-          {% include header.html %}
-
-          <div class="inner cover">
-            {{ content }}
+      <div class="main">
+        {% assign rows = content | split:"@row" %}
+        {% for row in rows %}
+          <div class="row">
+            {% assign columns = row | split:"@column" %}
+            {% for column in columns %}
+              <div class="col-sm-{{ 12 | divided_by:forloop.length }}">
+                {{ column }}
+              </div>
+            {% endfor %}
           </div>
-
-          {% include footer.html %}
-
-        </div>
+        {% endfor %}
       </div>
-    </div>
 
+      {% include footer.html %}
+
+    </div>
   </body>
 
 </html>
