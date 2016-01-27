@@ -1,9 +1,12 @@
 ---
 layout: default
-title: Metrics
+title: Police Department
 ---
-# Number of Programs
 
-<div style="height: 300px">
-{% include charts/programs.html %}
-</div>
+# Reported Crime Incidents
+
+{% include charts/crimes_by_month.html height=300 %}
+
+# Crime Incidents by Type
+
+{% include charts/crimes_by_type.html height=300 %}
