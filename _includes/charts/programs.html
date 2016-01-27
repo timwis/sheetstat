@@ -1,32 +1,34 @@
-<script>
-  AmCharts.makeChart(container(), {
-    "type": "serial",
-    "categoryField": "Term",
-    "theme": "dark",
-    "creditsPosition": "top-right",
-    "marginLeft": 0,
-    "marginRight": 0,
-    "marginTop": 0,
-    "categoryAxis": {
-      "gridPosition": "start",
-      "gridAlpha": 0
-    },
-    "graphs": [
-      {
-        "type": "column",
-        "fillAlphas": 0.7,
-        "valueField": "Number of Programs",
-        "balloonText": "[[value]] programs in [[category]]"
-      }
-    ],
-    "valueAxes": [{
-      "ticklength": 0,
-      "inside": true,
-      "position": "right",
-      "gridAlpha": 0,
-      "axisThickness": 0,
-      "tickLength": 0
-    }],
-    "dataProvider": {{ site.data.ppr | jsonify }}
-  })
-</script>
+<div style="height: {{ include.height | default: 300 }}px">
+  <script>
+    AmCharts.makeChart(container(), {
+      "type": "serial",
+      "categoryField": "Term",
+      "theme": "dark",
+      "creditsPosition": "top-right",
+      "marginLeft": 0,
+      "marginRight": 0,
+      "marginTop": 0,
+      "categoryAxis": {
+        "gridPosition": "start",
+        "gridAlpha": 0
+      },
+      "graphs": [
+        {
+          "type": "column",
+          "fillAlphas": 0.7,
+          "valueField": "Number of Programs",
+          "balloonText": "[[value]] programs in [[category]]"
+        }
+      ],
+      "valueAxes": [{
+        "ticklength": 0,
+        "inside": true,
+        "position": "right",
+        "gridAlpha": 0,
+        "axisThickness": 0,
+        "tickLength": 0
+      }],
+      "dataProvider": {{ site.data.ppr | jsonify }}
+    })
+  </script>
+</div>
