@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: grid
 title: Police Department
 ---
 

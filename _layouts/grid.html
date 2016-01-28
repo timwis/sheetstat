@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% assign rows = content | split:"@row" %}
+{% for row in rows %}
+  <div class="row">
+    {% assign columns = row | split:"@column" %}
+    {% for column in columns %}
+      <div class="col-sm-{{ 12 | divided_by:forloop.length }}">
+        {{ column }}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
