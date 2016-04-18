@@ -1,11 +1,11 @@
-"type","incidents"
-"All Other Offenses","41179"
-"Thefts","24038"
-"Other Assaults","23122"
-"Vandalism/Criminal Mischief","14947"
-"Theft from Vehicle","13217"
-"Fraud","11229"
-"Narcotic / Drug Law Violations","9625"
-"Burglary Residential","7808"
-"Recovered Stolen Motor Vehicle","7680"
-"Aggravated Assault No Firearm","5418"
+type,incidents
+All Other Offenses,41179
+Thefts,24038
+Other Assaults,23122
+Vandalism/Criminal Mischief,14947
+Theft from Vehicle,13217
+Fraud,11229
+Narcotic / Drug Law Violations,9625000
+Burglary Residential,7808
+Recovered Stolen Motor Vehicle,7680
+Aggravated Assault No Firearm,5418
