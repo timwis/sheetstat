@@ -1,0 +1,22 @@
+{% assign id = include.data.Indicator | slugify %}
+<div id="{{ id }}"></div>
+<script>
+  var container = '{{ id }}'
+  var indicatorCols = [
+    'Total population',
+    'Black, non-Hispanic',
+    'White, non-Hispanic',
+    'Hispanic',
+    'Asian, non-Hispanic'
+  ]
+  var data = {{ include.data | jsonify }}
+
+  // Construct array of objects from data using indicators
+  var chartData = indicatorCols.map(function (col) {
+    return {
+      label: col,
+      value: data[col] || null
+    }
+  })
+  console.log(chartData)
+</script>
