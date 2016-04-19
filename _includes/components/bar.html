@@ -1,0 +1,24 @@
+{% assign id = include.row.Indicator | slugify %}
+<div id="chart-{{ id }}" class="ct-chart ct-minor-seventh"></div>
+<script>
+(function () {
+  var container = '#chart-{{ id }}'
+  var labels = {{ include.labels | jsonify }}
+  var row = {{ include.row | jsonify }}
+
+  // Construct array of objects from data using indicators
+  var series = labels.map(function (col) {
+    return row[col] || null
+  })
+  var chartData = {
+    labels: labels,
+    series: [series]
+  }
+  var chartOpts = {
+    plugins: [
+      Chartist.plugins.tooltip()
+    ]
+  }
+  new Chartist.Bar(container, chartData, chartOpts)
+})()
+</script>

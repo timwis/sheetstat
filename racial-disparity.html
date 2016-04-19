@@ -1,0 +1,22 @@
+---
+layout: default
+title: Racial Disparity
+permalink: /racial-disparity/
+---
+
+{% assign categories = site.data.racial_disparity | group_by: 'Category' %}
+{% assign labels = site.data.racial_disparity_labels %}
+
+{% for category in categories %}
+  <h1 id="{{ category.name | slugify }}">{{ category.name }}</h1>
+
+  {% for row in category.items %}
+    <h2 id="{{ row.Indicator | slugify }}">{{ row.Indicator }}</h2>
+    {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
+    {% if row.dataSource %}<p>Source: {{ row.dataSource }}</p>{% endif %}
+    {% if row.description %}<p>{{ row.description }}</p>{% endif %}
+
+    {% include components/bar.html row=row labels=labels %}
+  {% endfor %}
+
+{% endfor %}

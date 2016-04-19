@@ -1,16 +1,7 @@
 ---
-layout: grid
-title: Police Department
+layout: default
+title: Community Health Assessment
 ---
 
-# Reported Crime Incidents
-
-{% include components/bar_crimes_by_month.html height=300 %}
-
-# Crime Incidents by Type
-
-{% include components/bar_crimes_by_type.html height=300 %}
-
-# Crime Incidents by District
-
-{% include components/map_crimes_by_district.html height=300 %}
+* [Racial Disparity](/racial-disparity/)
+* [Citywide Over Time](/citywide-over-time/)
