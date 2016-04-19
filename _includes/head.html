@@ -6,14 +6,17 @@
   <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="">
+  <link rel='icon' type='image/x-icon' href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css" rel="stylesheet">
   <link href="https://rawgit.com/Globegitter/chartist-plugin-tooltip/master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
+  <!--pattern stylesheet includes foundation css -->
+  <link rel="stylesheet" href="//cityofphiladelphia.github.io/patterns/dist/1.2.1/css/patterns.css">
   <link href="{{ site.baseurl }}/css/custom.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <!--include chartist in <head> since it's used in the <body> before the footer-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.js"></script>
   <script src="https://rawgit.com/Globegitter/chartist-plugin-tooltip/master/dist/chartist-plugin-tooltip.min.js"></script>
 </head>
