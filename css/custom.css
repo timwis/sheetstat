@@ -2,3 +2,61 @@ body { font-family: 'Open Sans', sans-serif; }
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
+.indicator-wrapper {
+  width: 95%;
+  margin-bottom: 20px;
+}
+.source {
+  font-size: .7rem;
+}
+.main {
+  margin-left: 20px;
+}
+.app .page-title-container {
+  max-width: 512px;
+}
+.chart-section {
+  margin-top: 40px;
+/*  border-bottom: 1px dotted grey;*/
+}
+.chartist-tooltip:before{
+  border-top-color: #58c04d;
+}
+.chartist-tooltip {
+  background: #58c04d;
+  color: white;
+}
+/* Use this selector to override the line style on a given series */
+.ct-series-a .ct-line {
+  /* Set the colour of this series line */
+  stroke: #96c9ff;
+  /* Control the thikness of your lines */
+  stroke-width: 4px;
+  /* Create a dashed line with a pattern */
+/*  stroke-dasharray: 10px 20px;*/
+}
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
+  /* Colour of your points */
+  stroke: #2176d2;
+  /* Size of your points */
+  stroke-width: 8px;
+  /* Make your points appear as squares */
+/*  stroke-linecap: square;*/
+}
+.ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
+  fill: #2176d2;
+}
+/* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
+.ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: #2176d2;
+  /* The width of your bars */
+  stroke-width: 3rem;
+}
+.ct-series-b .ct-bar {
+  /* Colour of your bars */
+  stroke: #f99300;
+  /* The width of your bars */
+  stroke-width: 3rem;
+}

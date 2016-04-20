@@ -15,8 +15,11 @@
     series: [series]
   }
   var chartOpts = {
+    horizontalBars: true,
     plugins: [
-      Chartist.plugins.tooltip()
+      Chartist.plugins.tooltip({
+        class: 'chartist-tooltip'
+      })
     ]
   }
   new Chartist.Bar(container, chartData, chartOpts)
