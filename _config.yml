@@ -10,4 +10,4 @@ kramdown:
 # Prose configuration
 prose: 
   rooturl: "_data"
-  ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/']
+  ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/', '_data/citywide_over_time_labels.yml', '_data/racial_disparity_labels.yml']
