@@ -15,8 +15,21 @@
     series: [series]
   }
   var chartOpts = {
+    lineSmooth: Chartist.Interpolation.cardinal({
+      fillHoles: true,
+    }),
     plugins: [
-      Chartist.plugins.tooltip()
+      Chartist.plugins.tooltip({
+        class: 'chartist-tooltip',
+      })
+//      Chartist.plugins.ctAccessibility({
+//        caption: 'Fiscal year 2015',
+//        seriesHeader: 'business numbers',
+//        summary: 'A graphic that shows the business numbers of the fiscal year 2015',
+//        valueTransform: function(value) {
+//          return value + ' dollar';
+//        }
+//      })
     ],
     showArea: true
   }

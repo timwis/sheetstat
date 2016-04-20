@@ -3,20 +3,25 @@ layout: default
 title: Citywide Over Time
 permalink: /citywide-over-time/
 ---
+<div class="row chart-section">
+  <div class="medium-20 column">
+  {% assign categories = site.data.citywide_over_time | group_by: 'Category' %}
+  {% assign labels = site.data.citywide_over_time_labels %}
+    <div clas="indicator-wrapper">
+    {% for category in categories %}
+      <h1 id="{{ category.name | slugify }}" class="contrast chart-section">{{ category.name }}</h1>
 
-{% assign categories = site.data.citywide_over_time | group_by: 'Category' %}
-{% assign labels = site.data.citywide_over_time_labels %}
+      {% for row in category.items %}
+      <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}</h2>
+        {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
+        {% if row.description %}<p>{{ row.description }}</p>{% endif %}
 
-{% for category in categories %}
-<h1 id="{{ category.name | slugify }}" class="contrast">{{ category.name }}</h1>
+        {% include components/line.html row=row labels=labels %}
+      {% if row.dataSource %}<p class="source float-right">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+      {% endfor %}
 
-  {% for row in category.items %}
-<h2 id="{{ row.Indicator | slugify }}" class="alternate divide">{{ row.Indicator }}</h2>
-    {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
-    {% if row.dataSource %}<p>Source: {{ row.dataSource }}</p>{% endif %}
-    {% if row.description %}<p>{{ row.description }}</p>{% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</div>
 
-    {% include components/line.html row=row labels=labels %}
-  {% endfor %}
-
-{% endfor %}
