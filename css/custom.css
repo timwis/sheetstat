@@ -1,1 +1,4 @@
 body { font-family: 'Open Sans', sans-serif; }
+.top-bar, .top-bar ul, .title-bar {
+  background-color: #96c9ff;
+}

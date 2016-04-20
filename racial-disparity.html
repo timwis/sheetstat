@@ -8,10 +8,10 @@ permalink: /racial-disparity/
 {% assign labels = site.data.racial_disparity_labels %}
 
 {% for category in categories %}
-  <h1 id="{{ category.name | slugify }}">{{ category.name }}</h1>
+<h1 id="{{ category.name | slugify }}" class="contrast">{{ category.name }}</h1>
 
   {% for row in category.items %}
-    <h2 id="{{ row.Indicator | slugify }}">{{ row.Indicator }}</h2>
+<h2 id="{{ row.Indicator | slugify }}" class="alternate divide">{{ row.Indicator }}</h2>
     {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
     {% if row.dataSource %}<p>Source: {{ row.dataSource }}</p>{% endif %}
     {% if row.description %}<p>{{ row.description }}</p>{% endif %}
