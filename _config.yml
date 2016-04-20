@@ -6,3 +6,8 @@ baseurl: "/community-health-report" # the subpath of your site, e.g. /blog
 markdown: kramdown
 kramdown:
   input: GFM
+
+# Prose configuration
+prose: 
+  rooturl: "_data"
+  ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/']
