@@ -19,6 +19,21 @@ body { font-family: 'Open Sans', sans-serif; }
   margin-top: 40px;
 /*  border-bottom: 1px dotted grey;*/
 }
+/*ANCHOR LINKS*/
+/* http://ben.balter.com/2014/03/13/pages-anchor-links/ */
+.header-link {
+  opacity: 0;
+  font-size: 80%;
+}
+
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  opacity: 1;
+}
+/*TOOLTIPS*/
 .chartist-tooltip:before{
   border-top-color: #58c04d;
 }

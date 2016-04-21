@@ -12,7 +12,9 @@ permalink: /citywide-over-time/
       <h1 id="{{ category.name | slugify }}" class="contrast chart-section">{{ category.name }}</h1>
 
       {% for row in category.items %}
-        <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}</h2>
+        <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+          <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+        </h2>
         {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
         <div class="row">
           <div class="medium-16 column">
