@@ -21,15 +21,15 @@
     plugins: [
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
+      }),
+      Chartist.plugins.ctAccessibility({
+        caption: '{{ row.Indicator }}',
+        seriesHeader: 'business numbers',
+        summary: '{{ row.description }}',
+        valueTransform: function(value) {
+          return value + ' dollar';
+        }
       })
-//      Chartist.plugins.ctAccessibility({
-//        caption: 'Fiscal year 2015',
-//        seriesHeader: 'business numbers',
-//        summary: 'A graphic that shows the business numbers of the fiscal year 2015',
-//        valueTransform: function(value) {
-//          return value + ' dollar';
-//        }
-//      })
     ],
     showArea: true
   }

@@ -1,5 +1,5 @@
 # Site settings
-title: Community Health Assessment
+title: Community Health Explorer
 baseurl: "/community-health-report" # the subpath of your site, e.g. /blog
 
 # Build settings
