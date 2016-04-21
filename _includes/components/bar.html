@@ -15,13 +15,47 @@
     series: [series]
   }
   var chartOpts = {
+    low: 0,
+    onlyInteger: true,
     horizontalBars: true,
+    scaleMinSpace: 30,
+    seriesBarDistance: 15,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        // do whatever math operation you want here
+        return Math.floor(value * 100) + '%';
+      }
+    },
     plugins: [
       Chartist.plugins.tooltip({
-        class: 'chartist-tooltip'
+        class: 'chartist-tooltip',
+        tooltipFnc: function(_, value) {
+          return Math.floor(value * 100) + '%';
+        }
+      }),
+      Chartist.plugins.ctAccessibility({
+        caption: '{{ row.Indicator }}',
+        seriesHeader: 'race',
+        summary: '{{ row.description }}',
+        valueTransform: Chartist.noop
       })
     ]
   }
-  new Chartist.Bar(container, chartData, chartOpts)
+  var chart = new Chartist.Bar(container, chartData, chartOpts)
+
+//var count = 45;
+//var max = 5;
+//  
+//chart.on('draw', function(context) {
+//  // First we want to make sure that only do something when the draw event is for bars. Draw events do get fired for labels and grids too.
+//  if(context.type === 'bar') {
+//    // With the Chartist.Svg API we can easily set an attribute on our bar that just got drawn
+//    context.element.attr({
+//      // Now we set the style attribute on our bar to override the default color of the bar. By using a HSL colour we can easily set the hue of the colour dynamically while keeping the same saturation and lightness. From the context we can also get the current value of the bar. We use that value to calculate a hue between 0 and 100 degree. This will make our bars appear green when close to the maximum and red when close to zero.
+//      style: 'stroke: hsl(' + Math.floor(Chartist.getMultiValue(context.value) / max * 100) + ', 50%, 50%);'
+//    });
+//  }
+//});
+  
 })()
 </script>

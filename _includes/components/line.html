@@ -15,23 +15,38 @@
     series: [series]
   }
   var chartOpts = {
-    lineSmooth: Chartist.Interpolation.cardinal({
+    low: 0,
+    onlyInteger: true,
+    showArea: true,
+    scaleMinSpace: 30,
+    axisY: {
+      labelInterpolationFnc: function (value) {
+        // do whatever math operation you want here
+        return Math.floor(value * 100) + '%';
+      }
+    },
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value.toString().slice(-2)
+      }
+    },
+    lineSmooth: Chartist.Interpolation.none({
       fillHoles: true,
-    }),
+    }), 
     plugins: [
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
+        tooltipFnc: function(_, value) {
+          return Math.floor(value * 100) + '%';
+        }
       }),
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',
-        seriesHeader: 'business numbers',
+        seriesHeader: 'year',
         summary: '{{ row.description }}',
-        valueTransform: function(value) {
-          return value + ' dollar';
-        }
+        valueTransform: Chartist.noop
       })
     ],
-    showArea: true
   }
   new Chartist.Line(container, chartData, chartOpts)
 })()
