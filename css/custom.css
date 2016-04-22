@@ -10,7 +10,10 @@ body { font-family: 'Open Sans', sans-serif; }
   font-size: .7rem;
 }
 .main {
-/*  margin-left: 20px;*/
+  margin-left: 20px;
+}
+.description {
+  margin-top: 10px;
 }
 .app .page-title-container {
   max-width: 512px;
@@ -35,10 +38,10 @@ h6:hover .header-link {
 }
 /*TOOLTIPS*/
 .chartist-tooltip:before{
-  border-top-color: #58c04d;
+  border-top-color: #444444;
 }
 .chartist-tooltip {
-  background: #58c04d;
+  background: #444444;
   color: white;
 }
 svg > g:nth-child(2) > g > line:nth-child(5) {
@@ -56,12 +59,24 @@ svg > g:nth-child(2) > g > line:nth-child(2) {
 svg > g:nth-child(2) > g > line:nth-child(1) {
   stroke: #f2e205;
 }
+svg > g:nth-child(2) > g > line:nth-child(6) {
+  stroke: #e7494b;
+}
+svg > g:nth-child(2) > g > line:nth-child(7) {
+  stroke: #3661a2;
+}
+svg > g:nth-child(2) > g > line:nth-child(7) {
+  stroke: #9299a5;
+}
+svg > g:nth-child(2) > g > line:nth-child(7) {
+  stroke: #3661a2;
+}
 
 /* Use this selector to override the line style on a given series */
 .ct-series-a .ct-line {
   /* Set the colour of this series line */
   stroke: #96c9ff;
-  /* Control the thikness of your lines */
+  /* Control the thickness of your lines */
   stroke-width: 4px;
   /* Create a dashed line with a pattern */
 /*  stroke-dasharray: 10px 20px;*/
@@ -69,7 +84,7 @@ svg > g:nth-child(2) > g > line:nth-child(1) {
 /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
 .ct-series-a .ct-point {
   /* Colour of your points */
-  stroke: #2176d2;
+  stroke: #2176d2!important;
   /* Size of your points */
   stroke-width: 8px;
   /* Make your points appear as squares */
@@ -83,11 +98,11 @@ svg > g:nth-child(2) > g > line:nth-child(1) {
   /* Colour of your bars */
   stroke: #2176d2;
   /* The width of your bars */
-  stroke-width: 3rem;
+  stroke-width: 2rem;
 }
 .ct-series-b .ct-bar {
   /* Colour of your bars */
   stroke: #f99300;
   /* The width of your bars */
-  stroke-width: 3rem;
+  stroke-width: 2rem;
 }

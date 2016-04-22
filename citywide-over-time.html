@@ -18,12 +18,15 @@ permalink: /citywide-over-time/
         {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
         <div class="row">
           <div class="medium-16 column">
-            {% include components/line.html row=row labels=labels %}
-            {% if row.dataSource %}<p class="source float-right">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+            {% if row.dataType == 'Rate' or row.dataType == 'Count' %}{% include components/line-rate.html row=row labels=labels %}{% endif %}
+            {% if row.dataType == 'Percentage' %}{% include components/line.html row=row labels=labels %}{% endif %}
           </div>
           <div class="medium-8 column end">
+            <aside id="secondary" class="related plm-mu" role="complementary">
             {% if row.description %}<p>{{ row.description }}</p>{% endif %}
-            {% if row.chartComment %}<p><em>{{ row.chartComment }}</em></p>{% endif %}
+            {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+            {% if row.dataSource %}<p class="source">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+            </aside>
           </div>
         </div>
       {% endfor %}

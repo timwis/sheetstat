@@ -20,17 +20,20 @@ permalink: /racial-disparity/
         <div class="row">
           <div class="medium-16 column">
             {% include components/bar.html row=row labels=labels %}
-            {% if row.dataSource %}<p class="source float-right">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
-          </div>          
+          </div>       
           <div class="medium-8 column end">
-            {% if row.description %}<p>{{ row.description }}</p>{% endif %}
-            {% if row.chartComment %}<p><em>{{ row.chartComment }}</em></p>{% endif %}
+            <aside id="secondary" class="related plm-mu" role="complementary">
+              {% if row.description %}<p class="description">{{ row.description }}</p>{% endif %}
+              {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+              {% if row.dataSource %}<p class="source">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+            </aside>
           </div>
         </div>  
+        {% endfor %}
       {% endfor %}
+    <a class="right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
 
-    {% endfor %}
-    
     {% include svg2png.html %}
+    
   </div>
 </div>

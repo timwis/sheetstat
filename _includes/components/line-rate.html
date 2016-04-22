@@ -23,7 +23,7 @@
     axisY: {
       labelInterpolationFnc: function (value) {
         // do whatever math operation you want here
-        return Math.floor(value * 100) + '%';
+        return Math.floor(value / 2);
       }
     },
     axisX: {
@@ -39,7 +39,7 @@
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
         tooltipFnc: function(_, value) {
-          return Math.floor(value * 100) + '%';
+          return value;
         }
       }),
       Chartist.plugins.ctAccessibility({

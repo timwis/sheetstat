@@ -19,8 +19,13 @@
     onlyInteger: true,
     horizontalBars: true,
     scaleMinSpace: 30,
-    seriesBarDistance: 15,
+    seriesBarDistance: 5,
+    axisY: {
+      showGrid: false,
+      offset: 60
+    },
     axisX: {
+      offset: 20,
       labelInterpolationFnc: function (value) {
         // do whatever math operation you want here
         return Math.floor(value * 100) + '%';
