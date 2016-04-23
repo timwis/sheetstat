@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    
+    <!--Include analytics-->
+    
+    {% include analytics.html %}
+
+    <div class="full" id="application">
+
+      <!-- Begin header -->
+
+      {% include header.html %}
+
+      <div class="main">
+      {{ content }}
+      </div>
+
+      {% include footer.html %}
+      
+    </div>
+    
+  </body>
+
+</html>
