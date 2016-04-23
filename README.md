@@ -1,4 +1,4 @@
-# Community Health Assessment
+# Community Health Assessment   [![Build Status](https://travis-ci.org/CityOfPhiladelphia/community-health-report.svg?branch=master)](https://travis-ci.org/CityOfPhiladelphia/community-health-report)
 Work in progress
 
 ## Edit Data
