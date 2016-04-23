@@ -1,0 +1,41 @@
+---
+layout: map
+title: Planning Districts
+permalink: /planning-districts/
+---
+
+<div class="row">
+  <div class="medium-24 column">
+    <div id="map" class="medium-16 column"></div>
+    <div id="district-info" class="medium-8 column">
+      {% assign categories = site.data.planning_district | group_by: 'Category' %}
+      {% assign labels = site.data.planning_district_labels %}
+
+      {% for category in categories %}
+      <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+        <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+      {% for row in category.items %}
+      <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+        <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+      </h2>
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+
+  // from http://osm2vectortiles.org/docs/display-map-with-mapbox-gl
+
+  mapboxgl.accessToken = 'NOT-REQUIRED-WITH-OUR-DATA';
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: '/assets/bright-v8.json',
+    center: [-75.1659, 39.9544],
+    bearing: 9.1,
+    zoom: 11,
+    hash: true
+  });
+  map.addControl(new mapboxgl.Navigation());
+</script>
