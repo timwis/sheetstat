@@ -25,18 +25,18 @@
       offset: 60
     },
     axisX: {
-      offset: 20,
-      labelInterpolationFnc: function (value) {
-        // do whatever math operation you want here
-        return Math.floor(value * 100) + '%';
-      }
+      offset: 20
+//      labelInterpolationFnc: function (value) {
+//        // do whatever math operation you want here
+//        return Math.floor(value * 100);
+//      }
     },
     plugins: [
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
-        tooltipFnc: function(_, value) {
-          return Math.floor(value * 100) + '%';
-        }
+//        tooltipFnc: function(_, value) {
+//          return Math.floor(value * 100) + '%';
+//        }
       }),
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',
@@ -46,7 +46,6 @@
       })
     ]
   }
-new Chartist.Bar(container, chartData, chartOpts)
-  
+  new Chartist.Bar(container, chartData, chartOpts)
 })()
 </script>
