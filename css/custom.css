@@ -1,4 +1,7 @@
-body { font-family: 'Open Sans', sans-serif; }
+body { 
+  font-family: 'Open Sans', sans-serif; 
+  margin:0; padding:0;
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
@@ -12,15 +15,38 @@ body { font-family: 'Open Sans', sans-serif; }
 .main {
   margin-left: 20px;
 }
+#map { 
+/*  position: absolute; */
+  top: 0; 
+  bottom: 0; 
+  left: -30px;
+/*  width: 67%;*/
+  height: 500px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+/*  z-index: -1000;*/
+}
+
 .description {
   margin-top: 10px;
 }
 .app .page-title-container {
-  max-width: 512px;
+/*  max-width: 512px;*/
+}
+.top {
+  border-bottom: 1px dotted #a1a1a1;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+.category-section {
+  margin-top: 30px;
+/*  margin-bottom: 30px;*/
 }
 .chart-section {
-  margin-top: 40px;
-/*  border-bottom: 1px dotted grey;*/
+/*  margin-top: 40px;*/
+/*  margin-bottom: 30px;*/
+/*  padding-top: 40px;*/
 }
 /*ANCHOR LINKS*/
 /* http://ben.balter.com/2014/03/13/pages-anchor-links/ */
@@ -29,6 +55,7 @@ body { font-family: 'Open Sans', sans-serif; }
   font-size: 80%;
 }
 
+h1:hover .header-link,
 h2:hover .header-link,
 h3:hover .header-link,
 h4:hover .header-link,
@@ -54,7 +81,7 @@ svg > g:nth-child(2) > g > line:nth-child(3) {
   stroke: #96c9ff;
 }
 svg > g:nth-child(2) > g > line:nth-child(2) {
-  stroke: #ff9f00;
+  stroke: #f99300;
 }
 svg > g:nth-child(2) > g > line:nth-child(1) {
   stroke: #f2e205;
@@ -65,10 +92,10 @@ svg > g:nth-child(2) > g > line:nth-child(6) {
 svg > g:nth-child(2) > g > line:nth-child(7) {
   stroke: #3661a2;
 }
-svg > g:nth-child(2) > g > line:nth-child(7) {
+svg > g:nth-child(2) > g > line:nth-child(8) {
   stroke: #9299a5;
 }
-svg > g:nth-child(2) > g > line:nth-child(7) {
+svg > g:nth-child(2) > g > line:nth-child(9) {
   stroke: #3661a2;
 }
 
@@ -98,7 +125,7 @@ svg > g:nth-child(2) > g > line:nth-child(7) {
   /* Colour of your bars */
   stroke: #2176d2;
   /* The width of your bars */
-  stroke-width: 2rem;
+  stroke-width: 3rem;
 }
 .ct-series-b .ct-bar {
   /* Colour of your bars */
