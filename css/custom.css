@@ -16,18 +16,23 @@ body {
   margin-left: 20px;
 }
 #map { 
-/*  position: absolute; */
-  top: 0; 
+  position: fixed; 
+  margin-top: 142px; 
   bottom: 0; 
-  left: -30px;
+  left: 0px;
 /*  width: 67%;*/
-  height: 500px;
+  height: 100%;
   padding: 0;
   margin: 0;
   overflow: hidden;
 /*  z-index: -1000;*/
 }
-
+#district-info {
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  right:0;
+}
 .description {
   margin-top: 10px;
 }
@@ -86,17 +91,26 @@ svg > g:nth-child(2) > g > line:nth-child(2) {
 svg > g:nth-child(2) > g > line:nth-child(1) {
   stroke: #f2e205;
 }
-svg > g:nth-child(2) > g > line:nth-child(6) {
+svg > g:nth-child(2) > g > line:nth-child(8) {
   stroke: #e7494b;
 }
 svg > g:nth-child(2) > g > line:nth-child(7) {
-  stroke: #3661a2;
+  stroke: #ef2477;
 }
-svg > g:nth-child(2) > g > line:nth-child(8) {
+svg > g:nth-child(2) > g > line:nth-child(12) {
   stroke: #9299a5;
 }
 svg > g:nth-child(2) > g > line:nth-child(9) {
+  stroke: #918a09;
+}
+svg > g:nth-child(2) > g > line:nth-child(10) {
   stroke: #3661a2;
+}
+svg > g:nth-child(2) > g > line:nth-child(11) {
+  stroke: #7fc5dc;
+}
+svg > g:nth-child(2) > g > line:nth-child(6) {
+  stroke: #5e91e5;
 }
 
 /* Use this selector to override the line style on a given series */

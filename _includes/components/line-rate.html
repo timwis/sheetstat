@@ -1,5 +1,5 @@
 {% assign id = include.row.Indicator | slugify %}
-<div id="chart-{{ id }}" class="ct-chart ct-minor-seventh"></div>
+<div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
 <script>
 (function () {
   var container = '#chart-{{ id }}'
@@ -20,12 +20,6 @@
     onlyInteger: true,
     showArea: true,
     scaleMinSpace: 30,
-    axisY: {
-//      labelInterpolationFnc: function (value) {
-//        // do whatever math operation you want here
-//        return Math.floor(value / 2);
-//      }
-    },
     axisX: {
       showGrid: false,
       labelInterpolationFnc: function (value) {
@@ -44,7 +38,7 @@
       }),
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',
-        seriesHeader: 'year',
+        seriesHeader: 'dimension',
         summary: '{{ row.description }}',
         valueTransform: Chartist.noop
       })
