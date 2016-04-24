@@ -7,6 +7,7 @@ permalink: /top-10-cities/
   .ct-series-a .ct-bar {
     stroke-width: 1rem;
   }
+  
 </style>
 <div class="row chart-section">
   <div class="medium-24 column">
@@ -34,7 +35,17 @@ permalink: /top-10-cities/
             <aside id="secondary" class="related plm-mu" role="complementary">
             {% if row.description %}<p class="description">{{ row.description }}</p>{% endif %}
             {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
-            {% if row.dataSource %}<p class="source">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+            {% if row.dataSource2 %}
+              <p class="source"><strong>Sources:</strong><br> 
+                {{ row.dataSource }} | {{ row.dataSourceYear }},<br>
+              {{ row.dataSource2 }} | {{ row.dataSource2Year }}</p>{% else %}
+              <p class="source"><strong>Source:</strong><br> {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+            {% endif %}
+            {% if row.dateUpdated %}
+              <p class="updated"><strong>Data Updated:</strong><br>
+                {{ row.dateUpdated }}</p>
+            {% endif %}
+
             </aside>
           </div>
         </div>

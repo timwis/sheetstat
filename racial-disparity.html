@@ -3,7 +3,24 @@ layout: default
 title: Racial Disparity
 permalink: /racial-disparity/
 ---
-
+<style>
+  /* BAR COLORS */
+  svg > g:nth-child(2) > g > line:nth-child(1) {
+    stroke: #f2e205;
+  }
+  svg > g:nth-child(2) > g > line:nth-child(2) {
+    stroke: #f99300;
+  }
+  svg > g:nth-child(2) > g > line:nth-child(3) {
+    stroke: #96c9ff;
+  }
+  svg > g:nth-child(2) > g > line:nth-child(4) {
+    stroke: #a8bf12;
+  }
+  svg > g:nth-child(2) > g > line:nth-child(5) {
+    stroke: #00aab5;
+  }
+</style>
 <div class="row chart-section">
   <div class="medium-24 column">
     {% assign categories = site.data.racial_disparity | group_by: 'Category' %}
@@ -22,15 +39,20 @@ permalink: /racial-disparity/
         <div class="row">
           <div class="medium-16 column">
             {% if row.dataType == 'Rate' or row.dataType == 'Count' %}
-            {% include components/bar-rate.html row=row labels=labels %}{% else %}
-            {% include components/bar.html row=row labels=labels %}
+              {% include components/bar-rate.html row=row labels=labels %}{% else %}
+              {% include components/bar.html row=row labels=labels %}
             {% endif %}
           </div>       
           <div class="medium-8 column end">
             <aside id="secondary" class="related plm-mu" role="complementary">
               {% if row.description %}<p class="description">{{ row.description }}</p>{% endif %}
               {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
-              {% if row.dataSource %}<p class="source">Source: {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+              {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
+                {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+              {% endif %}
+
+              <a href="#/" class="button">Image</a>
+
             </aside>
           </div>
         </div>  

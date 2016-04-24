@@ -2,6 +2,23 @@ body {
   font-family: 'Open Sans', sans-serif; 
   margin:0; padding:0;
 }
+#map { 
+  position: fixed; 
+  margin-top: 142px; 
+  bottom: 0; 
+  left: 0px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  z-index: -1000;
+}
+#district-info {
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  right:0;
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
@@ -9,29 +26,12 @@ body {
   width: 95%;
   margin-bottom: 20px;
 }
-.source {
+.source, .updated {
   font-size: .7rem;
 }
 .main {
   margin-left: 20px;
-}
-#map { 
-  position: fixed; 
-  margin-top: 142px; 
-  bottom: 0; 
-  left: 0px;
-/*  width: 67%;*/
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-/*  z-index: -1000;*/
-}
-#district-info {
-  height: 100%;
-  position: absolute;
-  overflow-y: scroll;
-  right:0;
+  margin-right: 20px;
 }
 .description {
   margin-top: 10px;
@@ -53,7 +53,8 @@ body {
 /*  margin-bottom: 30px;*/
 /*  padding-top: 40px;*/
 }
-/*ANCHOR LINKS*/
+
+/* ANCHOR LINKS */
 /* http://ben.balter.com/2014/03/13/pages-anchor-links/ */
 .header-link {
   opacity: 0;
@@ -68,7 +69,8 @@ h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
 }
-/*TOOLTIPS*/
+
+/* TOOLTIPS */
 .chartist-tooltip:before{
   border-top-color: #444444;
 }
@@ -76,41 +78,43 @@ h6:hover .header-link {
   background: #444444;
   color: white;
 }
-svg > g:nth-child(2) > g > line:nth-child(5) {
-  stroke: #00aab5;
-}
-svg > g:nth-child(2) > g > line:nth-child(4) {
-  stroke: #a8bf12;
-}
-svg > g:nth-child(2) > g > line:nth-child(3) {
-  stroke: #96c9ff;
-}
-svg > g:nth-child(2) > g > line:nth-child(2) {
-  stroke: #f99300;
-}
+
+/* BAR COLORS */
 svg > g:nth-child(2) > g > line:nth-child(1) {
-  stroke: #f2e205;
-}
-svg > g:nth-child(2) > g > line:nth-child(8) {
   stroke: #e7494b;
 }
-svg > g:nth-child(2) > g > line:nth-child(7) {
+svg > g:nth-child(2) > g > line:nth-child(2) {
   stroke: #ef2477;
+}
+svg > g:nth-child(2) > g > line:nth-child(3) {
+  stroke: #f99300;
+}
+svg > g:nth-child(2) > g > line:nth-child(4) {
+  stroke: #f2e205;
+}
+svg > g:nth-child(2) > g > line:nth-child(5) {
+  stroke: #a8bf12;
+}
+svg > g:nth-child(2) > g > line:nth-child(6) {
+  stroke: #918a09;
+}
+svg > g:nth-child(2) > g > line:nth-child(7) {
+  stroke: #00aab5;
+}
+svg > g:nth-child(2) > g > line:nth-child(8) {
+  stroke: #7fc5dc;
+}
+svg > g:nth-child(2) > g > line:nth-child(9) {
+  stroke: #3661a2;
+}
+svg > g:nth-child(2) > g > line:nth-child(10) {
+  stroke: #5e91e5;
+}
+svg > g:nth-child(2) > g > line:nth-child(11) {
+  stroke: #96c9ff;
 }
 svg > g:nth-child(2) > g > line:nth-child(12) {
   stroke: #9299a5;
-}
-svg > g:nth-child(2) > g > line:nth-child(9) {
-  stroke: #918a09;
-}
-svg > g:nth-child(2) > g > line:nth-child(10) {
-  stroke: #3661a2;
-}
-svg > g:nth-child(2) > g > line:nth-child(11) {
-  stroke: #7fc5dc;
-}
-svg > g:nth-child(2) > g > line:nth-child(6) {
-  stroke: #5e91e5;
 }
 
 /* Use this selector to override the line style on a given series */
