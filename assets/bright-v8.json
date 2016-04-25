@@ -8,7 +8,7 @@
         }
     },
   "sprite": "/assets/sprite",
-"glyphs": "/assets/font/{fontstack}/{range}.pbf",
+  "glyphs": "/assets/font/{fontstack}/{range}.pbf",
     "metadata": {
         "mapbox:groups": {
             "1444849364238.8171": {
