@@ -6,7 +6,7 @@ permalink: /planning-districts/
 
 <div class="row">
   <div class="medium-10 column">
-    {% include components/map.html %}
+    <div id="map"></div>
   </div>
   <div id="district-info" class="medium-14 column end">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
@@ -33,3 +33,9 @@ permalink: /planning-districts/
     {% endfor %}
   </div>
 </div>
+
+{% include components/map.html
+    container='#map'
+    geojson=site.data.planning_district_boundaries
+    data=site.data.planning_district
+    labels=site.data.planning_district_labels %}
