@@ -1,0 +1,53 @@
+<div id="map"></div>
+<script>
+(function () {
+  var districts = {{ site.data.planning_district_boundaries | jsonify }}
+  var data = {{ site.data.planning_district | jsonify }}
+  var labels = {{ site.data.planning_district_labels | jsonify }}
+  var philaCenterPoint = [39.9897471840457, -75.13893127441406]
+  var defaultZoom = 10
+
+  // Index the data by planning district
+  var hashMap = {}
+  data.forEach(function (row) {
+    var indicatorSlug = slugify(row.Indicator)
+    labels.forEach(function (label) {
+      if (!hashMap[label]) hashMap[label] = {}
+      hashMap[label][indicatorSlug] = row[label]
+    })
+  })
+
+  // Join the data to the geojson
+  districts.features.forEach(function (feature) {
+    feature.properties.indicators = hashMap[feature.properties.DIST_NAME] || {}
+  })
+  console.log(districts.features)
+
+  // Initialize map
+  var map = L.map('map').setView(philaCenterPoint, defaultZoom)
+
+  // Add basemap
+  L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+    maxZoom: 16
+  }).addTo(map)
+
+  // Add districts layer
+  var layer = L.geoJson(districts).addTo(map)
+
+  // When a district is clicked, update the document to reflect its indicators
+  layer.on('click', function (event) {
+    var indicators = event.layer.feature.properties.indicators
+    for (var indicator in indicators) {
+      document.getElementById('value-' + indicator).innerText = indicators[indicator]
+    }
+  })
+
+  function slugify (text) {
+    return text.toString().toLowerCase().trim()
+      .replace(/[^a-zA-Z0-9]/g, '-')  // Replace non-alphanumeric chars with -
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^\-|\-$/i, '')        // Remove leading/trailing hyphen
+  }
+})()
+</script>
