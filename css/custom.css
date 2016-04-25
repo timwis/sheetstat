@@ -3,15 +3,8 @@ body {
   margin:0; padding:0;
 }
 #map { 
-  position: fixed; 
-  margin-top: 142px; 
-  bottom: 0; 
-  left: 0px;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-/*  z-index: -1000;*/
+  width: 100%;
+  height: 300px;
 }
 #district-info {
   height: 100%;
@@ -22,11 +15,15 @@ body {
 .planning-indicators {
   
 }
+.indicator-value {
+  color: #58c04d!important;
+  font-size: 2rem!important;
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
 .indicator-wrapper {
-  width: 95%;
+/*  width: 95%;*/
   margin-bottom: 20px;
 }
 .source, .updated {

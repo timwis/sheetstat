@@ -43,9 +43,9 @@
   //        }
         }),
         Chartist.plugins.ctAccessibility({
-          caption: '{{ row.Indicator }}',
+          caption: {{ row.Indicator | jsonify }},
           seriesHeader: 'dimension',
-          summary: '{{ row.description }}',
+          summary: {{ row.description | jsonify }},
           valueTransform: Chartist.noop
         })
       ]

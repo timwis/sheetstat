@@ -5,92 +5,111 @@ permalink: /planning-districts/
 ---
 
 <div class="row">
-  <div class="medium-24 column">
-    <div id="map" class="medium-10 column"></div>
-    <div id="district-info" class="medium-14 column end">
-      {% assign categories = site.data.planning_district | group_by: 'Category' %}
-      {% assign labels = site.data.planning_district_labels %}
+  <div class="medium-10 column">
+    <div id="map"></div>
+  </div>
+  <div id="district-info" class="medium-14 column end ptm">
+    {% assign categories = site.data.planning_district | group_by: 'Category' %}
+    {% assign labels = site.data.planning_district_labels %}
 
-      <label for="select">Choose a district</label>
-      <select id="select">
-        <optgroup label="Planning Districts">
-          {% for label in labels %}
-            <option><p>{{ label }}</p></option>
-          {% endfor %}
-        </optgroup>
-      </select>
-      
-      {% for category in categories %}
-        <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
-          <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
-        
-        {% for row in category.items %}
-          <h6 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
-            <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
-          </h6>
+    <!-- Dropdown to select district-->
+    <label for="select"><p>Choose a district</p></label>
+    <select id="planning-district">
+      <optgroup label="Planning Districts">
+        {% for label in labels %}
+          <option>{{ label }}</option>
         {% endfor %}
-      {% endfor %}
+      </optgroup>
+    </select>
+    
+    <!-- Loop over indicators, group by category and display as vertical accordion menu
+         http://foundation.zurb.com/sites/docs/accordion-menu.html -->
+    <div id="indicators" class="row">
+      <div class="small-24 columns">
+          {% for category in categories %}
+          <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+            <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+            
+            <div class="row">
+              {% for row in category.items %}
+              <div class="medium-8 columns equal-height pbs">
+                <div class="card equal">
+                  <div class="content-block equal">
+                    <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
+                      {% if row.dataType == 'Percentage' %}
+                        {{ row.Citywide | times:100 }}%
+                      {% else %}
+                        {{ row.Citywide }}
+                      {% endif %}
+                    </h1>
+                    <h5 class="">{{ row.Indicator }}</h5>
+                    <p class="">{{ row.description }}</p>
+                    {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+                    {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
+                    {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>  
+          {% endfor %}
+      </div>
+      
+      
+      
+      
+      
+<!--
+
+<ul class="menu vertical nested">
+{% for row in category.items %}
+<li id="{{ row.Indicator | slugify }}" class="chart-section">
+<p>{{ row.Indicator }}</p>
+<span class="indicator-value" id="value-{{ row.Indicator | slugify }}"><h3 class="ben-franklin-blue">{{ row.Citywide }}</h3></span>
+</li>
+{% endfor %}
+</ul>
+      
+      <div class="medium-18 columns">
+        <div class="tabs-content vertical" data-tabs-content="indicators-tabs">
+          {% for category in categories %}
+            <div class="tabs-panel{% if forloop.first %} is-active{% endif %}" id="{{ category.name | slugify }}">
+              <h2 class="contrast category-section">{{ category.name }}
+                <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+              </h2>
+              {% for row in category.items %}
+                <p id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+                  <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+                </p>
+                <span class="indicator-value" id="value-{{ row.Indicator | slugify }}">{{ row.Citywide }}</span>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+-->
     </div>
+<!--
+    
+    {% for category in categories %}
+      <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+        <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
+      {% for row in category.items %}
+        <h5 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+          <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+        </h5>
+        <span class="indicator-value" id="value-{{ row.Indicator | slugify }}">{{ row.Citywide }}</span>
+      {% endfor %}
+    {% endfor %}
+-->
+    
   </div>
 </div>
-<script>
 
-// from http://osm2vectortiles.org/docs/display-map-with-mapbox-gl
-
-  mapboxgl.accessToken = 'NOT-REQUIRED-WITH-OUR-DATA';
-  
-// Set bounds to Philadelphia metro
-//  var bounds = [[
-//    -75.31304201133231,
-//    39.82489724134453
-//  ],[
-//    -74.97655798866813,
-//    40.186424126574536
-//  ]]
-  
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: '/assets/bright-v8.json',
-    center: [-75.1448, 40.0059],
-    bearing: 9.5,
-    zoom: 9,
-//    maxBounds: bounds,
-    hash: true
-  });
-  
-  map.addControl(new mapboxgl.Navigation());
-  
-  map.on('style.load', function () {
-    map.addSource("districts", {
-      "type": "geojson",
-      "data": "/assets/Planning_Districts.geojson"
-    });
-
-    // add layers from source
-    map.addLayer({
-      "id": "districts",
-      "type": "fill",
-      "source": "districts",
-      "layout": {},
-      "paint": {
-        "fill-color": "#f99300",
-        "fill-outline-color": "#000000",
-        "fill-opacity": 0.5
-      }
-    }); 
-    map.addLayer({
-      "id": "districts-line",
-      "type": "line",
-      "source": "districts",
-      "layout": {            
-        "line-join": "round",
-        "line-cap": "round"
-      },
-      "paint": {
-        "line-color": "#000",
-        "line-width": 2,
-        "line-opacity": 0.5
-      }
-    });      
-  });
-</script>
+{% include components/map.html
+    container='#map'
+    geojson=site.data.planning_district_boundaries
+    data=site.data.planning_district
+    labels=site.data.planning_district_labels %}

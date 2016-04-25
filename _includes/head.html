@@ -14,6 +14,7 @@
   
   <!--pattern stylesheet includes foundation css -->
   <link rel="stylesheet" href="//cityofphiladelphia.github.io/patterns/dist/1.2.1/css/patterns.css">
+
   <link href="{{ site.baseurl }}/css/custom.css" rel="stylesheet">
 
   <!--include chartist in <head> since it's used in the <body> before the footer-->
@@ -21,13 +22,9 @@
   <!--TODO: switch these plugins to CDN-->
   <script src="https://rawgit.com/Globegitter/chartist-plugin-tooltip/master/dist/chartist-plugin-tooltip.min.js"></script>
   <script src="https://rawgit.com/gionkunz/chartist-plugin-accessibility/master/dist/chartist-plugin-accessibility.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="/vendor/html2canvas.js"></script>
-  <script src="/vendor/canvas2image.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pablo/0.4.0/pablo.min.js"></script>
   
   {% if page.title == 'Planning Districts' %}
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   {% endif %}
 </head>
