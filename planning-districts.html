@@ -5,82 +5,22 @@ permalink: /planning-districts/
 ---
 
 <div class="row">
-  <div class="medium-24 column">
-    <div id="map" class="medium-10 column"></div>
-    <div id="district-info" class="medium-14 column end">
-      {% assign categories = site.data.planning_district | group_by: 'Category' %}
-      {% assign labels = site.data.planning_district_labels %}
+  <div class="medium-10 column">
+    {% include components/map.html %}
+  </div>
+  <div id="district-info" class="medium-14 column end">
+    {% assign categories = site.data.planning_district | group_by: 'Category' %}
+    {% assign labels = site.data.planning_district_labels %}
 
-      {% for category in categories %}
-        <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
-          <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
-        {% for row in category.items %}
-          <h5 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
-            <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
-          </h5>
-        {% endfor %}
+    {% for category in categories %}
+      <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+        <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
+      {% for row in category.items %}
+        <h5 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+          <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+        </h5>
+        <span class="indicator-value" id="value-{{ row.Indicator | slugify }}">{{ row.Citywide }}</span>
       {% endfor %}
-    </div>
+    {% endfor %}
   </div>
 </div>
-<script>
-
-  // from http://osm2vectortiles.org/docs/display-map-with-mapbox-gl
-
-  mapboxgl.accessToken = 'NOT-REQUIRED-WITH-OUR-DATA';
-  
-  //
-  var bounds = [[
-    -75.31304201133231,
-    39.82489724134453
-  ],[
-    -74.97655798866813,
-    40.186424126574536
-  ]]
-  
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: {{ site.baseurl }} + '/assets/bright-v8.json',
-    center: [-75.1448, 40.0059],
-    bearing: 9.5,
-    zoom: 9,
-//    maxBounds: bounds,
-    hash: true
-  });
-  
-  map.addControl(new mapboxgl.Navigation());
-  
-  map.on('style.load', function () {
-    map.addSource("districts", {
-      "type": "geojson",
-      "data":  {{ site.baseurl }} + "/assets/Planning_Districts.geojson"
-    });
-
-    // add layers from source
-    map.addLayer({
-      "id": "districts",
-      "type": "fill",
-      "source": "districts",
-      "layout": {},
-      "paint": {
-        "fill-color": "#f99300",
-        "fill-outline-color": "#000000",
-        "fill-opacity": 0.5
-      }
-    }); 
-    map.addLayer({
-      "id": "districts-line",
-      "type": "line",
-      "source": "districts",
-      "layout": {            
-        "line-join": "round",
-        "line-cap": "round"
-      },
-      "paint": {
-        "line-color": "#000",
-        "line-width": 2,
-        "line-opacity": 0.5
-      }
-    });      
-  });
-</script>
