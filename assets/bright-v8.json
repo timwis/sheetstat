@@ -7,8 +7,8 @@
             "type": "vector"
         }
     },
-    "sprite": "/assets/sprite",
-    "glyphs": "/assets/font/{fontstack}/{range}.pbf",
+  "sprite": {{ site.baseurl }} + "/assets/sprite",
+"glyphs": {{ site.baseurl }} + "/assets/font/{fontstack}/{range}.pbf",
     "metadata": {
         "mapbox:groups": {
             "1444849364238.8171": {

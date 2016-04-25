@@ -6,8 +6,8 @@ permalink: /planning-districts/
 
 <div class="row">
   <div class="medium-24 column">
-    <div id="map" class="medium-12 column"></div>
-    <div id="district-info" class="medium-12 column end">
+    <div id="map" class="medium-10 column"></div>
+    <div id="district-info" class="medium-14 column end">
       {% assign categories = site.data.planning_district | group_by: 'Category' %}
       {% assign labels = site.data.planning_district_labels %}
 
@@ -40,7 +40,7 @@ permalink: /planning-districts/
   
   var map = new mapboxgl.Map({
     container: 'map',
-    style: '/assets/bright-v8.json',
+    style: {{ site.baseurl }} + '/assets/bright-v8.json',
     center: [-75.1448, 40.0059],
     bearing: 9.5,
     zoom: 9,
@@ -53,7 +53,7 @@ permalink: /planning-districts/
   map.on('style.load', function () {
     map.addSource("districts", {
       "type": "geojson",
-      "data":  "/assets/Planning_Districts.geojson"
+      "data":  {{ site.baseurl }} + "/assets/Planning_Districts.geojson"
     });
 
     // add layers from source
