@@ -37,10 +37,11 @@ permalink: /racial-disparity/
     
         {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
         <div class="row">
-          <div class="medium-16 column">
+          <div id="chartArea" class="medium-16 column">
             {% if row.dataType == 'Rate' or row.dataType == 'Count' %}
               {% include components/bar-rate.html row=row labels=labels %}{% else %}
               {% include components/bar.html row=row labels=labels %}
+            <div id="img-out"></div>
             {% endif %}
           </div>       
           <div class="medium-8 column end">
@@ -51,11 +52,11 @@ permalink: /racial-disparity/
                 {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
               {% endif %}
 
-              <a href="#/" class="button">Image</a>
+              <input type="button" id="share-button" class="button" value="Image">
 
             </aside>
           </div>
-        </div>  
+        </div> 
         <div class="medium-24 column top">
           <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
         </div>
@@ -64,3 +65,50 @@ permalink: /racial-disparity/
       {% endfor %}    
   </div>
 </div>
+<script>
+//  // function to generate png from svg element using html2canvas
+//  function makeImage(newImage) {
+//    var shareButton = document.getElementById("share-button");
+//    shareButton.addEventListener("click", function(){modifyText("four")}, false);
+//  }
+  
+  // function to add event listener to button
+//  addEventListener
+  
+//  var shareButton = document.getElementById("share-button");
+//  var chartArea = document.getElementById("chartArea");
+//  TODO: can/should these be named dynamically by chart id?
+//  ***
+//  var svgImage = element.getElementsByTagName("svg");
+//  console.log(svgImage);
+  
+  $(function() { 
+    var shareButton = document.getElementById("share-button");
+    shareButton.addEventListener("click",function() { 
+//      check for Pablo support
+      var newImage = document.getElementById("img-out");
+      var chartArea = document.getElementById("chartArea");
+
+      var img = Pablo(chartArea).toImage().png;
+      console.log(img);
+
+      img.appendTo(newImage);
+//      alert(newImage.innerHTML);
+      
+//      html2canvas($("#chartArea"), {
+//        onrendered: function(canvas) {
+//          var img = canvas.toDataURL("image/png");
+//          theCanvas = canvas;
+//          document.body.appendChild(canvas);
+
+          // Convert and download as image 
+//          Canvas2Image.saveAsPNG(canvas); 
+//          $("#img-out").append(canvas);
+          // Clean up 
+          //document.body.removeChild(canvas);
+//        }
+//      });
+    });
+  }); 
+
+</script>
