@@ -8,47 +8,91 @@ permalink: /planning-districts/
   <div class="medium-10 column">
     <div id="map"></div>
   </div>
-  <div id="district-info" class="medium-14 column end">
+  <div id="district-info" class="medium-14 column end ptm">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
 
-    <label for="select">Choose a district</label>
+    <!-- Dropdown to select district-->
+    <label for="select"><p>Choose a district</p></label>
     <select id="planning-district">
       <optgroup label="Planning Districts">
         {% for label in labels %}
-          <option><p>{{ label }}</p></option>
+          <option>{{ label }}</option>
         {% endfor %}
       </optgroup>
     </select>
-    <div id="indicators" class="row ptl">
-      <div class="medium-6 columns">
-        <ul class="tabs vertical" data-tabs id="example-vert-tabs">
-          <li class="tabs-title is-active"><a href="#panel1">Social</a></li>
-          <li class="tabs-title"><a href="#panel2">Summary</a></li>
-          <li class="tabs-title"><a href="#panel3">Tobacco and Alcohol</a></li>
-          <li class="tabs-title"><a href="#panel4">Obesity</a></li>
-        </ul>
+    
+    <!-- Loop over indicators, group by category and display as vertical accordion menu
+         http://foundation.zurb.com/sites/docs/accordion-menu.html -->
+    <div id="indicators" class="row">
+      <div class="small-24 columns">
+          {% for category in categories %}
+          <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+            <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+            
+            <div class="row">
+              {% for row in category.items %}
+              <div class="medium-8 columns equal-height pbs">
+                <div class="card equal">
+                  <div class="content-block equal">
+                    <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
+                      {% if row.dataType == 'Percentage' %}
+                        {{ row.Citywide | times:100 }}%
+                      {% else %}
+                        {{ row.Citywide }}
+                      {% endif %}
+                    </h1>
+                    <h5 class="">{{ row.Indicator }}</h5>
+                    <p class="">{{ row.description }}</p>
+                    {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+                    {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
+                    {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>  
+          {% endfor %}
       </div>
+      
+      
+      
+      
+      
+<!--
+
+<ul class="menu vertical nested">
+{% for row in category.items %}
+<li id="{{ row.Indicator | slugify }}" class="chart-section">
+<p>{{ row.Indicator }}</p>
+<span class="indicator-value" id="value-{{ row.Indicator | slugify }}"><h3 class="ben-franklin-blue">{{ row.Citywide }}</h3></span>
+</li>
+{% endfor %}
+</ul>
+      
       <div class="medium-18 columns">
-        <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
-          <div class="tabs-panel is-active" id="panel1">
-            <h2>This is a heading</h2>
-            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
-            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
-            <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
-          </div>
-          <div class="tabs-panel" id="panel2">
-            <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
-          </div>
-          <div class="tabs-panel" id="panel3">
-            <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-          </div>
-          <div class="tabs-panel" id="panel4">
-            <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-          </div>
+        <div class="tabs-content vertical" data-tabs-content="indicators-tabs">
+          {% for category in categories %}
+            <div class="tabs-panel{% if forloop.first %} is-active{% endif %}" id="{{ category.name | slugify }}">
+              <h2 class="contrast category-section">{{ category.name }}
+                <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+              </h2>
+              {% for row in category.items %}
+                <p id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+                  <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+                </p>
+                <span class="indicator-value" id="value-{{ row.Indicator | slugify }}">{{ row.Citywide }}</span>
+              {% endfor %}
+            </div>
+          {% endfor %}
         </div>
       </div>
+      
+-->
     </div>
+<!--
+    
     {% for category in categories %}
       <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
         <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
@@ -59,6 +103,8 @@ permalink: /planning-districts/
         <span class="indicator-value" id="value-{{ row.Indicator | slugify }}">{{ row.Citywide }}</span>
       {% endfor %}
     {% endfor %}
+-->
+    
   </div>
 </div>
 

@@ -15,11 +15,15 @@ body {
 .planning-indicators {
   
 }
+.indicator-value {
+  color: #58c04d!important;
+  font-size: 2rem!important;
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
 .indicator-wrapper {
-  width: 95%;
+/*  width: 95%;*/
   margin-bottom: 20px;
 }
 .source, .updated {
