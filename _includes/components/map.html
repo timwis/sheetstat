@@ -37,7 +37,13 @@
 
   // When a district is clicked, update the document to reflect its indicators
   layer.on('click', function (event) {
+    var planningDistrict = event.layer.feature.properties.DIST_NAME
     var indicators = event.layer.feature.properties.indicators
+
+    // Set dropdown to the clicked planning district
+    document.getElementById('planning-district').value = planningDistrict 
+
+    // Update all indicators
     for (var indicator in indicators) {
       document.getElementById('value-' + indicator).innerText = indicators[indicator]
     }
