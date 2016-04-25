@@ -12,6 +12,9 @@ body {
   overflow-y: scroll;
   right:0;
 }
+.planning-indicators {
+  
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }
@@ -47,8 +50,8 @@ body {
 /*  padding-top: 40px;*/
 }
 
-/* ANCHOR LINKS */
-/* http://ben.balter.com/2014/03/13/pages-anchor-links/ */
+/* ANCHOR LINKS
+http://ben.balter.com/2014/03/13/pages-anchor-links/ */
 .header-link {
   opacity: 0;
   font-size: 80%;

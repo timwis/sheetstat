@@ -37,10 +37,11 @@ permalink: /racial-disparity/
     
         {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
         <div class="row">
-          <div class="medium-16 column">
+          <div id="chartArea" class="medium-16 column">
             {% if row.dataType == 'Rate' or row.dataType == 'Count' %}
               {% include components/bar-rate.html row=row labels=labels %}{% else %}
               {% include components/bar.html row=row labels=labels %}
+            <div id="img-out"></div>
             {% endif %}
           </div>       
           <div class="medium-8 column end">
@@ -51,11 +52,11 @@ permalink: /racial-disparity/
                 {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
               {% endif %}
 
-              <a href="#/" class="button">Image</a>
+              <input type="button" id="share-button" class="button" value="Image">
 
             </aside>
           </div>
-        </div>  
+        </div> 
         <div class="medium-24 column top">
           <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
         </div>

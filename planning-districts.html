@@ -12,6 +12,15 @@ permalink: /planning-districts/
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
 
+    <label for="select">Choose a district</label>
+    <select id="select">
+      <optgroup label="Planning Districts">
+        {% for label in labels %}
+          <option><p>{{ label }}</p></option>
+        {% endfor %}
+      </optgroup>
+    </select>
+
     {% for category in categories %}
       <h2 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
         <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h2>
