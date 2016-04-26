@@ -1,9 +1,4 @@
-<script>
 (function () {
-  var container = document.querySelector({{ include.container | jsonify }})
-  var districtsGeojson = {{ include.geojson | jsonify }}
-  var data = {{ include.data | jsonify }}
-  var labels = {{ include.labels | jsonify }}
   var defaultCenter = [39.9628, -75.1185]
   var defaultZoom = 11
 
@@ -83,4 +78,3 @@
       .replace(/^\-|\-$/i, '')        // Remove leading/trailing hyphen
   }
 })()
-</script>

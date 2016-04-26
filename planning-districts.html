@@ -112,8 +112,11 @@ permalink: /planning-districts/
   </div>
 </div>
 
-{% include components/map.html
-    container='#map'
-    geojson=site.data.planning_district_boundaries
-    data=site.data.planning_district
-    labels=site.data.planning_district_labels %}
+<script>
+  var container = document.querySelector('#map')
+  var districtsGeojson = {{ site.data.planning_district_boundaries | jsonify }}
+  var data = {{ site.data.planning_district | jsonify }}
+  var labels = {{ site.data.planning_district_labels | jsonify }}
+</script>
+<script src="{{ site.baseurl }}/scripts/map.js"></script>
+
