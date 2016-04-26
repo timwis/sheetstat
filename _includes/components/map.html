@@ -4,8 +4,8 @@
   var districtsGeojson = {{ include.geojson | jsonify }}
   var data = {{ include.data | jsonify }}
   var labels = {{ include.labels | jsonify }}
-  var defaultCenter = [39.9897471840457, -75.13893127441406]
-  var defaultZoom = 10
+  var defaultCenter = [39.9628, -75.1185]
+  var defaultZoom = 11
 
   // Index the data by planning district
   var indexedData = {}
@@ -29,11 +29,34 @@
   // Add basemap
   L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+    minZoon: 12,
     maxZoom: 16
   }).addTo(map)
+  
+  var districtStyle = {
+    "color": "#58c04d",
+    "weight": 2,
+    "opacity": 0.85
+  };
 
   // Add districts layer
-  var districtsLayer = L.geoJson(districtsGeojson).addTo(map)
+  var districtsLayer = L.geoJson(districtsGeojson, {
+    style: districtStyle,
+    onEachFeature: addInfo
+  }).addTo(map);
+  
+  function addInfo(feature, layer){
+    if (feature.properties.DIST_NAME) {
+      layer.bindPopup(feature.properties.DIST_NAME);
+    }
+  }
+  
+  districtsLayer.on('mouseover', function(e) {
+    e.layer.openPopup();
+  });
+  districtsLayer.on('mouseout', function(e) {
+    e.layer.closePopup();
+  });
 
   // When a district is clicked on the map, update the document to reflect its indicators
   districtsLayer.on('click', function (event) {

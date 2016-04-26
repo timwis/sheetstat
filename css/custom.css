@@ -7,7 +7,7 @@ body {
   left: -20px;
   margin: 0px;
   padding: 0px;
-  width: 33%;
+  width: 40%;
 }
 #map-wrapper {
   height: 100%;
@@ -16,18 +16,19 @@ body {
 }
 #district-info {
   overflow-y: scroll;
-  width: 67%;
+  width: 60%;
   float: right;
   height: 100%;
 }
 #indicators {
   position: absolute;
   float: right;  
-  width: 66%;
+  width: 60%;
   right:0;
   bottom:0px;
   height: 100%;
   overflow: scroll;
+  padding-right: 10px;
 }
 .indicator-value {
   color: #58c04d!important;
