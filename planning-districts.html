@@ -5,10 +5,10 @@ permalink: /planning-districts/
 ---
 
 <div class="row">
-  <div class="medium-10 column">
-    <div id="map"></div>
-  </div>
-  <div id="district-info" class="medium-14 column end ptm">
+  <div id="map-wrapper">
+    <div id="map" class=""></div>
+  
+  <div id="district-info" class="ptm">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
 
@@ -25,14 +25,14 @@ permalink: /planning-districts/
     <!-- Loop over indicators, group by category and display as vertical accordion menu
          http://foundation.zurb.com/sites/docs/accordion-menu.html -->
     <div id="indicators" class="row">
-      <div class="small-24 columns">
+      <div class="">
           {% for category in categories %}
           <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
             
             <div class="row">
               {% for row in category.items %}
-              <div class="medium-8 columns equal-height pbs">
+              <div class="medium-8 column equal-height pbs">
                 <div class="card equal">
                   <div class="content-block equal">
                     <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
@@ -105,6 +105,7 @@ permalink: /planning-districts/
     {% endfor %}
 -->
     
+  </div>
   </div>
 </div>
 
