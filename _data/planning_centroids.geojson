@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID_1": 1, "OBJECTID": 14, "DIST_NAME": "River Wards", "ABBREV": "RW" }, "geometry": { "type": "Point", "coordinates": [ -75.095993577247725, 39.987872372455961 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 2, "OBJECTID": 3, "DIST_NAME": "North Delaware", "ABBREV": "NDEL" }, "geometry": { "type": "Point", "coordinates": [ -75.028283506279891, 40.033521044547847 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 3, "OBJECTID": 0, "DIST_NAME": "Lower Far Northeast", "ABBREV": "LFNE" }, "geometry": { "type": "Point", "coordinates": [ -74.997170890131628, 40.080276409712567 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 4, "OBJECTID": 9, "DIST_NAME": "Central", "ABBREV": "CTR" }, "geometry": { "type": "Point", "coordinates": [ -75.158784816168875, 39.953793268221737 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 5, "OBJECTID": 10, "DIST_NAME": "University Southwest", "ABBREV": "USW" }, "geometry": { "type": "Point", "coordinates": [ -75.210747252728922, 39.946719278559051 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 6, "OBJECTID": 17, "DIST_NAME": "Upper Northwest", "ABBREV": "UNW" }, "geometry": { "type": "Point", "coordinates": [ -75.19133281561237, 40.053388907402173 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 7, "OBJECTID": 18, "DIST_NAME": "Upper North", "ABBREV": "UNO" }, "geometry": { "type": "Point", "coordinates": [ -75.145284160139624, 40.048602561986996 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 8, "OBJECTID": 8, "DIST_NAME": "South", "ABBREV": "STH" }, "geometry": { "type": "Point", "coordinates": [ -75.164838612651906, 39.924648414589569 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 9, "OBJECTID": 15, "DIST_NAME": "North", "ABBREV": "NOR" }, "geometry": { "type": "Point", "coordinates": [ -75.140703879920792, 40.008011871687287 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 10, "OBJECTID": 16, "DIST_NAME": "Lower Northwest", "ABBREV": "LNW" }, "geometry": { "type": "Point", "coordinates": [ -75.222747563900143, 40.042525293218766 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 11, "OBJECTID": 6, "DIST_NAME": "Lower South", "ABBREV": "LS" }, "geometry": { "type": "Point", "coordinates": [ -75.176937617724761, 39.901543845959694 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 12, "OBJECTID": 1, "DIST_NAME": "Lower Northeast", "ABBREV": "LNE" }, "geometry": { "type": "Point", "coordinates": [ -75.089241975971063, 40.030388657466567 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 13, "OBJECTID": 2, "DIST_NAME": "Central Northeast", "ABBREV": "CNE" }, "geometry": { "type": "Point", "coordinates": [ -75.062912539335755, 40.064173927486181 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 14, "OBJECTID": 11, "DIST_NAME": "West", "ABBREV": "WST" }, "geometry": { "type": "Point", "coordinates": [ -75.231574103310678, 39.964694431369708 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 15, "OBJECTID": 4, "DIST_NAME": "Upper Far Northeast", "ABBREV": "UFNE" }, "geometry": { "type": "Point", "coordinates": [ -75.022009310440822, 40.106617314708224 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 16, "OBJECTID": 7, "DIST_NAME": "Lower Southwest", "ABBREV": "LSW" }, "geometry": { "type": "Point", "coordinates": [ -75.229120857249086, 39.898206694086575 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 17, "OBJECTID": 12, "DIST_NAME": "West Park", "ABBREV": "WP" }, "geometry": { "type": "Point", "coordinates": [ -75.225499632867681, 39.985911817676872 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 18, "OBJECTID": 13, "DIST_NAME": "Lower North", "ABBREV": "LNO" }, "geometry": { "type": "Point", "coordinates": [ -75.165702569464059, 39.983316167530639 ] } }
+]
+}
