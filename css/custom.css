@@ -34,6 +34,12 @@ body {
   color: #58c04d!important;
   font-size: 2rem!important;
 }
+.card-category {
+  width: 32%;
+  display: inline-block; 
+  min-height: 400px;
+  vertical-align: top;
+}
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
 }

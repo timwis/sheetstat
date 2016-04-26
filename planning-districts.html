@@ -30,11 +30,10 @@ permalink: /planning-districts/
           <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
             
-            <div class="row">
+            <div class="cards-category">
               {% for row in category.items %}
-              <div class="medium-8 column equal-height pbs">
-                <div class="card equal">
-                  <div class="content-block equal">
+                <div class="card card-category">
+                  <div class="content-block">
                     <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
                       {% if row.dataType == 'Percentage' %}
                         {{ row.Citywide | times:100 }}%
@@ -55,7 +54,6 @@ permalink: /planning-districts/
                     {% endif %}
                   </div>
                 </div>
-              </div>
               {% endfor %}
             </div>  
           {% endfor %}
