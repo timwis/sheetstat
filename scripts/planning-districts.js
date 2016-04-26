@@ -8,7 +8,8 @@
     var indicatorSlug = slugify(row.Indicator)
     labels.forEach(function (label) {
       if (!indexedData[label]) indexedData[label] = {}
-      indexedData[label][indicatorSlug] = row[label]
+      var value = row.dataType === 'Percentage' ? percentify(row[label]) : row[label]
+      indexedData[label][indicatorSlug] = value
     })
   })
 
@@ -76,5 +77,9 @@
       .replace(/[^a-zA-Z0-9]/g, '-')  // Replace non-alphanumeric chars with -
       .replace(/\-\-+/g, '-')         // Replace multiple - with single -
       .replace(/^\-|\-$/i, '')        // Remove leading/trailing hyphen
+  }
+
+  function percentify (value) {
+    return (Math.round(value * 100) / 10) + '%'
   }
 })()
