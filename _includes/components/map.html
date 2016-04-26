@@ -45,12 +45,14 @@
     onEachFeature: addInfo
   }).addTo(map);
   
+  // Bind district names to popup 
   function addInfo(feature, layer){
     if (feature.properties.DIST_NAME) {
       layer.bindPopup(feature.properties.DIST_NAME);
     }
   }
   
+  // Display district name popup on hover
   districtsLayer.on('mouseover', function(e) {
     e.layer.openPopup();
   });
