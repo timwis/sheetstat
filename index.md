@@ -3,9 +3,8 @@ layout: default
 title: Community Health Assessment
 ---
 
-<h1 class="contrast">Community Health Explorer</h1>
-
-The Community Health Explorer is a joint project between the City of Philadelphia's [Department of Public Health](http://www.phila.gov/health/) and [Office of Innovation and Technology](http://www.phila.gov/it). The Explorer is intended to provide easy-to-use, responsive and accessible visualization tools for viewing the vast amount of data collected annually for the Community Health Assessment. 
+<br>
+The Community Health Explorer is a joint project between the City of Philadelphia's [Department of Public Health](http://www.phila.gov/health/) and [Office of Innovation and Technology](http://www.phila.gov/it). The Explorer is intended to provide easy-to-use, responsive and accessible visualization tools for viewing the vast amount of data collected annually for the Community Health Assessment.
 
 
 
