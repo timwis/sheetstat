@@ -17,15 +17,17 @@ The CHA is a systematic assessment of population health in Philadelphia, highlig
 
 The Community Health Assessment report is [available for download](http://www.phila.gov/health/commissioner/DataResearch.html) on the Department of Public Health site.
 
-<hr>
+
 
 <h2>About the Application</h2>
 
-This is an open source project that uses the City of Philadelphia patterns, Jekyll, Leaflet.js, and Chartist.js. 
-[Feedback](http://phila.gov/feedback) & contributions are welcome. 
+<p>This is an open source project that uses the City of Philadelphia patterns, Jekyll, Leaflet.js, and Chartist.js. </p>
+
+[Feedback](http://phila.gov/feedback) & contributions are welcome.
+
 [View the source code](https://github.com/CityOfPhiladelphia/community-health-explorer)
 
-**Data:**
+<h5>Data:</h5>
 
 - [Planning Districts]({{ site.basurl }}/_data/planning_district.csv)
 - [Racial Disparity]({{ site.basurl }}/_data/racial_disparity.csv)
