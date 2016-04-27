@@ -10,7 +10,7 @@ kramdown:
 # Prose configuration
 prose: 
   rooturl: "_data"
-  ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/', '_data/citywide_over_time_labels.yml', '_data/racial_disparity_labels.yml', 'planning_district_boundaries.json', 'planning_district_labels.yml', 'top_10_cities_label.yml']
+  ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/', '_data/citywide_over_time_labels.yml', '_data/racial_disparity_labels.yml', 'planning_district_boundaries.json', 'planning_district_labels.yml', 'top_10_cities_label.yml', '*.geojson']
 
 # Ruby config for plugins
 #gems:
