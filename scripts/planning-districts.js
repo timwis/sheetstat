@@ -46,19 +46,19 @@
     }
   }).addTo(map)
 //  .showLabel();
-  
-  window.districtsLayer = districtsLayer;
-  
-  districtsLayer.eachLayer(function(layer) {
-    // Find polygon centroid using Leaflet
-    var polygonCenter = districtsLayer.getBounds().getCenter();
-
-    // Bind labels using Leaflet.label plugin
-    L.marker(polygonCenter)
-      .bindLabel(feature.properties.DIST_NAME, { noHide: true })
-      .addTo(map)
-      .showLabel();
-  })
+//  
+//  window.districtsLayer = districtsLayer;
+//  
+//  districtsLayer.eachLayer(function(layer) {
+//    // Find polygon centroid using Leaflet
+//    var polygonCenter = districtsLayer.getBounds().getCenter();
+//
+//    // Bind labels using Leaflet.label plugin
+//    L.marker(polygonCenter)
+//      .bindLabel(feature.properties.DIST_NAME, { noHide: true })
+//      .addTo(map)
+//      .showLabel();
+//  })
   // Bind district labels
 //  function addInfo(feature, layer){
 //    if (feature.properties.DIST_NAME) {
