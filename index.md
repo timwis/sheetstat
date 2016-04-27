@@ -7,7 +7,7 @@ title: Community Health Assessment
 
 The Community Health Explorer is a joint project between the City of Philadelphia's [Department of Public Health](http://www.phila.gov/health/) and [Office of Innovation and Technology](http://www.phila.gov/it). The Explorer is intended to provide easy-to-use, responsive and accessible visualization tools for viewing the vast amount of data collected annually for the Community Health Assessment. 
 
-## About the Community Health Assessment (CHA)
+### About the Community Health Assessment (CHA)
 
 The CHA is a systematic assessment of population health in Philadelphia, highlighting key public health challenges and assets and informing local public health programs, policies, and partnerships.
 
@@ -20,12 +20,13 @@ The CHA includes indicators reflecting health behaviors, health conditions, heal
 
 The Community Health Assessment report is [available for download](http://www.phila.gov/health/commissioner/DataResearch.html) on the Department of Public Health site.
 
-## About the Application
+### About the Application
 
-This is an open source project. [Feedback](http://phila.gov/feedback) & contributions are welcome. 
+This is an open source project that uses the City of Philadelphia patterns, Jekyll, Leaflet.js, and Chartist.js. 
+[Feedback](http://phila.gov/feedback) & contributions are welcome. 
 [View the source code](https://github.com/CityOfPhiladelphia/community-health-explorer)
 
-### Data:
+**Data:**
 
 - [Planning Districts]({{ site.basurl }}/_data/planning_district.csv)
 - [Racial Disparity]({{ site.basurl }}/_data/racial_disparity.csv)
