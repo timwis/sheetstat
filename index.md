@@ -22,15 +22,19 @@ The Community Health Assessment report is [available for download](http://www.ph
 
 ## About the Application
 
-This is an open source project and feedback & contributions are welcome. 
+This is an open source project. [Feedback](http://phila.gov/feedback) & contributions are welcome. 
 [View the source code](https://github.com/CityOfPhiladelphia/community-health-explorer)
 
 ### Data:
 
-- Planning Districts
-- Racial Disparity
-- Citywide Over Time
-- Top 10 Cities
+- [Planning Districts]({{ site.basurl }}/_data/planning_district.csv)
+- [Racial Disparity]({{ site.basurl }}/_data/racial_disparity.csv)
+- [Citywide Over Time]({{ site.basurl }}/_data/citywide_over_time.csv)
+- [Top 10 Cities]({{ site.basurl }}/_data/top_10_cities.csv)
+
+### Contributors
+
+
 
 <!--* [Planning Districts]({{ site.baseurl }}/planning-districts/)-->
 <!--* [Racial Disparity]({{ site.baseurl }}/racial-disparity/)-->
