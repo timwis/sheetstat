@@ -35,26 +35,44 @@
     "opacity": 0.85
   };
 
+  
   // Add districts layer
   var districtsLayer = L.geoJson(districtsGeojson, {
     style: districtStyle,
-    onEachFeature: addInfo
-  }).addTo(map);
-  
-  // Bind district names to popup 
-  function addInfo(feature, layer){
-    if (feature.properties.DIST_NAME) {
-      layer.bindPopup(feature.properties.DIST_NAME);
+    onEachFeature: function (feature, layer){
+      if (feature.properties.DIST_NAME) {
+        layer.bindLabel(feature.properties.DIST_NAME, { noHide: true });
+      }
     }
-  }
+  }).addTo(map)
+//  .showLabel();
   
-  // Display district name popup on hover
-  districtsLayer.on('mouseover', function(e) {
-    e.layer.openPopup();
-  });
-  districtsLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-  });
+  window.districtsLayer = districtsLayer;
+  
+  districtsLayer.eachLayer(function(layer) {
+    // Find polygon centroid using Leaflet
+    var polygonCenter = districtsLayer.getBounds().getCenter();
+
+    // Bind labels using Leaflet.label plugin
+    L.marker(polygonCenter)
+      .bindLabel(feature.properties.DIST_NAME, { noHide: true })
+      .addTo(map)
+      .showLabel();
+  })
+  // Bind district labels
+//  function addInfo(feature, layer){
+//    if (feature.properties.DIST_NAME) {
+//      layer.bindLabel(feature.properties['DIST_NAME'], { noHide: true });
+//    }
+//  }
+//  
+//  // Display district labels
+//  districtsLayer.on('mouseover', function(e) {
+//    e.layer.openPopup();
+//  });
+//  districtsLayer.on('mouseout', function(e) {
+//    e.layer.closePopup();
+//  });
 
   // When a district is clicked on the map, update the document to reflect its indicators
   districtsLayer.on('click', function (event) {

@@ -13,14 +13,16 @@ permalink: /planning-districts/
     {% assign labels = site.data.planning_district_labels %}
 
     <!-- Dropdown to select district-->
-    <label for="select"><p>Choose a district</p></label>
-    <select id="planning-district">
-      <optgroup label="Planning Districts">
-        {% for label in labels %}
-          <option>{{ label }}</option>
-        {% endfor %}
-      </optgroup>
-    </select>
+    <div id="district-selector">
+      <label for="select"><p>Choose a district</p></label>
+      <select id="planning-district">
+        <optgroup label="Planning Districts">
+          {% for label in labels %}
+            <option>{{ label }}</option>
+          {% endfor %}
+        </optgroup>
+      </select>
+    </div>
     
     <!-- Loop over indicators, group by category and display as vertical accordion menu
          http://foundation.zurb.com/sites/docs/accordion-menu.html -->

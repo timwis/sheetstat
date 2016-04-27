@@ -20,6 +20,9 @@ body {
   float: right;
   height: 100%;
 }
+#district-selector {
+  
+}
 #indicators {
   position: absolute;
   float: right;  
@@ -30,15 +33,19 @@ body {
   overflow: scroll;
   padding-right: 10px;
 }
+.label {
+  display: block!important;
+}
 .indicator-value {
   color: #58c04d!important;
   font-size: 2rem!important;
 }
 .card-category {
-  width: 32%;
+  width: 31%;
   display: inline-block; 
   min-height: 400px;
   vertical-align: top;
+  margin-right: 10px;
 }
 .top-bar, .top-bar ul, .title-bar {
   background-color: #96c9ff;
