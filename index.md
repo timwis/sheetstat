@@ -3,24 +3,23 @@ layout: default
 title: Community Health Assessment
 ---
 
-# Community Health Explorer
+<h1 class="contrast">Community Health Explorer</h1>
 
 The Community Health Explorer is a joint project between the City of Philadelphia's [Department of Public Health](http://www.phila.gov/health/) and [Office of Innovation and Technology](http://www.phila.gov/it). The Explorer is intended to provide easy-to-use, responsive and accessible visualization tools for viewing the vast amount of data collected annually for the Community Health Assessment. 
 
-### About the Community Health Assessment (CHA)
 
-The CHA is a systematic assessment of population health in Philadelphia, highlighting key public health challenges and assets and informing local public health programs, policies, and partnerships.
 
-The CHA includes indicators reflecting health behaviors, health conditions, health care factors, and social and environmental determinants of health.
+<h2>About the Community Health Assessment (CHA)</h2>
 
-1. Analyzing the latest year of Philadelphia data by planning districts 
-2. Analyzing the latest year of Philadelphia data by race/ethnicity
-3. Looking at Philadelphia data over time, from 2000 to the present
-4. Comparing Philadelphia data to other large cities/counties
+The CHA is a systematic assessment of population health in Philadelphia, highlighting key public health challenges and assets and informing local public health programs, policies, and partnerships. The CHA includes indicators reflecting health behaviors, health conditions, health care factors, and social and environmental determinants of health.
+
+{% include home-cards.html %}
 
 The Community Health Assessment report is [available for download](http://www.phila.gov/health/commissioner/DataResearch.html) on the Department of Public Health site.
 
-### About the Application
+<hr>
+
+<h2>About the Application</h2>
 
 This is an open source project that uses the City of Philadelphia patterns, Jekyll, Leaflet.js, and Chartist.js. 
 [Feedback](http://phila.gov/feedback) & contributions are welcome. 
@@ -33,10 +32,6 @@ This is an open source project that uses the City of Philadelphia patterns, Jeky
 - [Citywide Over Time]({{ site.basurl }}/_data/citywide_over_time.csv)
 - [Top 10 Cities]({{ site.basurl }}/_data/top_10_cities.csv)
 
-### Contributors
+<br>
 
-
-
-<!--* [Planning Districts]({{ site.baseurl }}/planning-districts/)-->
-<!--* [Racial Disparity]({{ site.baseurl }}/racial-disparity/)-->
-<!--* [Citywide Over Time]({{ site.baseurl }}/citywide-over-time/)-->
+{% include footer.html %}
