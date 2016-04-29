@@ -1,5 +1,8 @@
 # Community Health Assessment   
-Work in progress
+_Work in progress_
+
+Host, edit and visualize CSV-based data using [Jekyll](http://jekyllrb.com/), [Leaflet](http://leafletjs.com) & [Chartist](https://gionkunz.github.io/chartist-js/)
+
 
 User (Department Staff) Guide available in [Wiki](https://github.com/CityOfPhiladelphia/community-health-explorer/wiki/Maintaining-and-Updating-Data)
 
