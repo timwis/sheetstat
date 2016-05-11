@@ -26,11 +26,7 @@ permalink: /citywide-over-time/
             <aside id="secondary" class="related plm-mu" role="complementary">
             {% if row.description %}<p>{{ row.description }}</p>{% endif %}
             {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
-            {% if row.dataSource %}<p class="source"><strong>Source:</strong> {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
-            {% if row.dateUpdated %}
-              <p class="updated"><strong>Data Updated:</strong><br>
-                {{ row.dateUpdated }}</p>
-            {% endif %}  
+            {% if row.dataSource %}<p class="source"><strong>Source:</strong> {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %} 
             </aside>
           </div>
         </div>
