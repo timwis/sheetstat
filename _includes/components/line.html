@@ -17,13 +17,13 @@
   var chartOpts = {
     low: 0,
 //    high: 1,
-    onlyInteger: true,
+    onlyInteger: false,
     showArea: true,
     scaleMinSpace: 30,
     axisY: {
       labelInterpolationFnc: function (value) {
         // do whatever math operation you want here
-        return Math.floor(value * 100) + '%';
+        return Math.round(value * 100) / 10 + '%';
       }
     },
     axisX: {
@@ -39,7 +39,7 @@
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
         tooltipFnc: function(_, value) {
-          return Math.floor(value * 100) + '%';
+          return Math.round(value * 100) / 10 + '%';
         }
       }),
       Chartist.plugins.ctAccessibility({

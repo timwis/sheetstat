@@ -19,7 +19,7 @@
     }
     var chartOpts = {
       low: 0,
-      onlyInteger: true,
+      onlyInteger: false,
       horizontalBars: true,
       scaleMinSpace: 30,
       seriesBarDistance: 5,
@@ -31,14 +31,14 @@
         offset: 20,
         labelInterpolationFnc: function (value) {
           // do whatever math operation you want here
-          return Math.floor(value * 100) + '%';
+          return Math.round(value * 100) / 10 + '%';
         }
       },
       plugins: [
         Chartist.plugins.tooltip({
           class: 'chartist-tooltip',
           tooltipFnc: function(_, value) {
-            return Math.floor(value * 100) + '%';
+            return Math.round(value * 100) / 10 + '%';
           }
         }),
         Chartist.plugins.ctAccessibility({
