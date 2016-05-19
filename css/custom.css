@@ -21,8 +21,11 @@ body {
 .fa {
   color: #96C9FF!important;
 }
-g.ct-labels {
-  color: rgba(0,0,0,0.60);
+g.ct-label {
+  color: #444444!important;
+}
+.ct-label {
+  color: #444444!important;
 }
 #district-selector {
   padding-left: 0px;
