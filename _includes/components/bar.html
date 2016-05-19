@@ -21,7 +21,7 @@
       low: 0,
       onlyInteger: false,
       horizontalBars: true  ,
-      scaleMinSpace: 10,
+      scaleMinSpace: 20,
       seriesBarDistance: 5,
       axisY: {
         showGrid: false,
@@ -31,14 +31,14 @@
         offset: 20,
         labelInterpolationFnc: function (value) {
           // do whatever math operation you want here
-          return Math.round(value * 100) / 10 + '%';
+          return Math.round(value * 1000) / 10 + '%';
         }
       },
       plugins: [
         Chartist.plugins.tooltip({
           class: 'chartist-tooltip',
           tooltipFnc: function(_, value) {
-            return Math.round(value * 100) / 10 + '%';
+            return Math.round(value * 1000) / 10 + '%';
           }
         }),
         Chartist.plugins.ctAccessibility({

@@ -23,7 +23,7 @@
     axisY: {
       labelInterpolationFnc: function (value) {
         // do whatever math operation you want here
-        return Math.round(value * 100) / 10 + '%';
+        return Math.round(value * 1000) / 10 + '%';
       }
     },
     axisX: {
@@ -39,7 +39,7 @@
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
         tooltipFnc: function(_, value) {
-          return Math.round(value * 100) / 10 + '%';
+          return Math.round(value * 1000) / 10 + '%';
         }
       }),
       Chartist.plugins.ctAccessibility({
