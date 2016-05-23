@@ -3,7 +3,6 @@
   <div id="chart-{{ id }}" class="ct-chart ct-major-seventh"></div>{% else %}  
   <div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
 {% endif %}
-
 <script>
   (function () {
     var container = '#chart-{{ id }}'
@@ -26,7 +25,7 @@
       seriesBarDistance: 5,
       axisY: {
         showGrid: false,
-        offset: 80
+        offset: 120
       },
       axisX: {
         offset: 20
@@ -37,7 +36,7 @@
       },
       plugins: [
         Chartist.plugins.tooltip({
-          class: 'chartist-tooltip',
+          class: 'chartist-tooltip'
   //        tooltipFnc: function(_, value) {
   //          return Math.floor(value * 100) + '%';
   //        }
