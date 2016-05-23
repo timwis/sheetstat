@@ -32,7 +32,7 @@
   // define polygon default styles
   var districtStyle = {
     "color": "#58c04d",
-    "weight": 2,
+    "weight": 0.5,
     "opacity": 0.85
   };
   
@@ -41,7 +41,7 @@
     style: function (feature){
       var style = {
         "color": "#58c04d",
-        "weight": 2,
+        "weight": 0.5,
         "opacity": 0.85
       };
       // make inital polygon style match default value 
@@ -50,6 +50,11 @@
       if (feature.properties.DIST_NAME == 'Central'){
         style.color = '#2176d2'
       }
+//      else
+//      if (feature.properties.DIST_NAME == 'Lower South (Non-residential)'){
+//        style.color = '#333',
+//        style.opacity = 0.3
+//      } 
       return style;
     },
     // Create label popup on hover
@@ -61,9 +66,6 @@
   }).addTo(map)
   
   // Default to Central Planning District
-//  map.on('load', function () {
-//    planningDistrictDropdown.setAttribute('value', 'Central Northeast')
-//  }); 
 
   // When a district is clicked on the map, update the document to reflect its indicators
   districtsLayer.on('click', function (event) {
@@ -76,7 +78,7 @@
     planningDistrictDropdown.value = districtName
     var highlight = {
       'color': '#2176d2',
-      'weight': 2,
+      'weight': 0.5,
       'opacity': 1
     };
     districtsLayer.setStyle(districtStyle);
@@ -99,7 +101,7 @@
   }
   // Formats numeric values as percentages
   function percentify (value) {
-    return (Math.round(value * 100) / 10) + '%'
+    return (Math.round(value * 1000) / 10) + '%'
   }
   
 })()
