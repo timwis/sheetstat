@@ -21,11 +21,23 @@ permalink: /racial-disparity/
     stroke: #00aab5;
   }
 </style>
+
 <div class="row chart-section">
   <div class="medium-24 column">
     {% assign categories = site.data.racial_disparity | group_by: 'Category' %}
     {% assign labels = site.data.racial_disparity_labels %}
 
+    <div id="" class="category-selector small-24 column prm pbs">
+      <label for="categories">Choose a category</label>
+      <select id="categories">
+        <optgroup label="Categories">
+          {% for category in categories %}
+          <option><a href="#{{ category.name | slugify }}">{{ category.name }}</a></option>
+          {% endfor %}
+        </optgroup>
+      </select>
+    </div>
+    
     {% for category in categories %}
     <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
       <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>

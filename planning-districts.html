@@ -13,12 +13,23 @@ permalink: /planning-districts/
     {% assign labels = site.data.planning_district_labels %}
     
     <!-- Dropdown to select district-->
-    <div id="district-selector" class="small-24 column prm pbm">
-      <label for="select"><p>Choose a district</p></label>
+    <div id="" class="district-selector small-24 column prm pbs">
+      <label for="planning-district">Choose a district</label>
       <select id="planning-district">
         <optgroup label="Planning Districts">
           {% for label in labels %}
           <option>{{ label }}</option>
+          {% endfor %}
+        </optgroup>
+      </select>
+    </div>
+    <!-- Dropdown to select category-->
+    <div id="" class="category-selector small-24 column prm pbs">
+      <label for="categories">Choose a category</label>
+      <select id="categories">
+        <optgroup label="Categories">
+          {% for category in categories %}
+          <option><a href="#{{ category.name | slugify }}">{{ category.name }}</a></option>
           {% endfor %}
         </optgroup>
       </select>
@@ -31,26 +42,28 @@ permalink: /planning-districts/
           <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
 
-          <div class="cards-category row equal-height">
+          <div class="row equal-height">
             {% for row in category.items %}
-<!--@timwis: can't seem to get the line below to only append the class `end` for the last row in a category-->
-            <div class="card card-category large-6 medium-8 small-12 column equal {% if row.Indicator | last %}end{% endif %}">
-              <div class="content-block">
-                <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
-                  {% if row.dataType == 'Percentage' %}
-                    {{ row.Citywide | times:100 }}%
-                  {% else %}
-                    {{ row.Citywide }}
+            <!--@timwis: can't seem to get the line below to only append the class `end` for the last row in a category-->
+            <div class="medium-8 small-12 column {% if row.Indicator | last %}end{% endif %}">
+              <div class="card equal">
+                <div class="content-block">
+                  <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
+                    {% if row.dataType == 'Percentage' %}
+                      {{ row.Citywide | times:100 }}%
+                    {% else %}
+                      {{ row.Citywide }}
+                    {% endif %}
+                  </h1>
+                  <h4 class="h2">{{ row.Indicator }}</h4><br>
+                  <!--{% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
+                  {% if row.description %}<p>{{ row.description }}</p>{% endif %}
+                  {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+                  {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
+                    {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
                   {% endif %}
-                </h1>
-                <h4 class="h2">{{ row.Indicator }}</h4><br>
-    <!--                  {% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
-                {% if row.description %}<p>{{ row.description }}</p>{% endif %}
-                {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
-                {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
-                  {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
-                {% endif %}
-                <p><i class="fa fa-twitter fa-2x"></i></p>
+                  <p><i class="fa fa-twitter fa-2x"></i></p>
+                </div>
               </div>
             </div>
           {% endfor %}

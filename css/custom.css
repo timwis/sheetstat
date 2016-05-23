@@ -28,7 +28,7 @@ g.ct-label {
   color: #444444!important;
 }
 
-#district-selector {
+.district-selector, .category-selector {
   padding-left: 0px;
   background-color: white;
 }
@@ -49,7 +49,7 @@ g.ct-label {
 /*  width: 95%;*/
 }
 .card .end {
-  margin-right: 0px;
+/*  margin-right: 0px;*/
 }
 .content-block {
 }
@@ -171,15 +171,32 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   fill: #2176d2;
 }
 /* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
+.ct-bar {
+  /* The width of your bars */
+  stroke-width: 5%;
+}
 .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: #2176d2;
-  /* The width of your bars */
-  stroke-width: 3rem;
 }
 .ct-series-b .ct-bar {
   /* Colour of your bars */
   stroke: #f99300;
-  /* The width of your bars */
-  stroke-width: 2rem;
+}
+
+@media (max-width: 400px) {
+  .ct-bar {
+    stroke-width: 3%;
+  }
+}
+@media (max-width: 700px) {
+  .ct-bar {
+    stroke-width: 4%;
+  }
+}
+.current {
+  background-color: #2176d2;
+}
+#site-nav ul li.current a {
+  color: white!important;
 }
