@@ -2,12 +2,12 @@
     <div class="row">
       <div class="small-24 columns">
         <a href="{{ site.baseurl }}/" class="logo">
-          <img data-interchange="[//cityofphiladelphia.github.io/patterns/images/city-of-philadelphia-mobile.png, small], [//cityofphiladelphia.github.io/patterns/images/city-of-philadelphia-white.png, medium] ">
+          <img data-interchange="[//cityofphiladelphia.github.io/patterns/images/city-of-philadelphia-mobile.png, small], [//cityofphiladelphia.github.io/patterns/images/city-of-philadelphia-white.png, medium]" src="http://cityofphiladelphia.github.io/patterns/images/city-of-philadelphia-white.png" alt="City of Philadelphia">
         </a>
         <div class="page-title-container">
           <a href="{{ site.baseurl }}/">
-            <h1 class="page-title">{{ site.title }}</h1>
-            <h2 class="page-subtitle">{{ page.title }}</h2>
+            <h1 class="page-title ">{{ site.title }}</h1>
+<!--            <h2 class="page-subtitle">{{ page.title }}</h2>-->
           </a>
         </div>
       </div>
@@ -20,13 +20,11 @@
         <div class="top-bar" id="site-nav">
           <nav>
             <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-              <li>
-                <a href="{{ site.baseurl }}/planning-districts/">Planning District</a>
-              </li>
-              <li class="current"><a href="{{ site.baseurl }}/racial-disparity/">Racial Disparity</a></li>
-              <li><a href="{{ site.baseurl }}/citywide-over-time/">Citywide Over Time</a></li>
-              <li><a href="{{ site.baseurl }}/top-10-cities/">Top 10 Cities</a></li>
-              <li><a href="{{ site.baseurl }}/">About</a></li>
+              <li class="{% if page.title == 'Planning Districts' %}current{% endif %}"><a href="{{ site.baseurl }}/planning-districts/">Planning District</a></li>
+              <li class="{% if page.title == 'Racial Disparity' %}current{% endif %}"><a href="{{ site.baseurl }}/racial-disparity/">Racial Disparity</a></li>
+              <li class="{% if page.title == 'Citywide Over Time' %}current{% endif %}"><a href="{{ site.baseurl }}/citywide-over-time/">Citywide Over Time</a></li>
+              <li class="{% if page.title == 'Top 10 Cities' %}current{% endif %}"><a href="{{ site.baseurl }}/top-10-cities/">Top 10 Cities</a></li>
+              <li class="{% if page.title == 'Community Health Assessment' %}current{% endif %}"><a href="{{ site.baseurl }}/">About</a></li>
             </ul>
           </nav>
         </div>
