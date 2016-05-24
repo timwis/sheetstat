@@ -16,7 +16,8 @@
   // When planning district dropdown changes, update indicators
   var planningDistrictDropdown = document.getElementById('planning-district')
   planningDistrictDropdown.addEventListener('change', function (event) {
-    updateIndicators(event.target.value)
+    updateIndicators(event.target.value);
+    districtsLayer.setStyle(setDistrictStyle)
   })
 
   // Initialize map
@@ -32,26 +33,28 @@
   // define polygon default styles
   var districtStyle = {
     "color": "#58c04d",
-    "weight": 2,
+    "weight": 0.5,
     "opacity": 0.85
+  };
+  
+  var setDistrictStyle = function (feature, highlighted){
+    var style = {
+      "color": "#58c04d",
+      "weight": 0.8,
+      "opacity": 0.85
+    };
+    // make inital polygon style match default value 
+    // TODO: this could be refactored to simply check 
+    // value of dropdown on load
+    if (feature.properties.DIST_NAME == planningDistrictDropdown.value){
+      style.color = '#2176d2'
+    }
+    return style;
   };
   
   // Add districts layer
   var districtsLayer = L.geoJson(districtsGeojson, {
-    style: function (feature){
-      var style = {
-        "color": "#58c04d",
-        "weight": 2,
-        "opacity": 0.85
-      };
-      // make inital polygon style match default value 
-        // TODO: this could be refactored to simply check 
-        // value of dropdown on load
-      if (feature.properties.DIST_NAME == 'Central'){
-        style.color = '#2176d2'
-      }
-      return style;
-    },
+    style: setDistrictStyle,
     // Create label popup on hover
     onEachFeature: function (feature, layer){
       if (feature.properties.DIST_NAME) {
@@ -59,26 +62,23 @@
       }
     }
   }).addTo(map)
-  
-  // Default to Central Planning District
-//  map.on('load', function () {
-//    planningDistrictDropdown.setAttribute('value', 'Central Northeast')
-//  }); 
 
   // When a district is clicked on the map, update the document to reflect its indicators
   districtsLayer.on('click', function (event) {
     var districtName = event.layer.feature.properties.DIST_NAME 
+    var highlight = {
+      'color': '#2176d2',
+      'weight': 0.5,
+      'opacity': 1
+    };
     console.log(event.layer);
     updateIndicators(districtName)
     
     // Set dropdown to the clicked planning district
     // and reset polygon style when another is clicked
     planningDistrictDropdown.value = districtName
-    var highlight = {
-      'color': '#2176d2',
-      'weight': 2,
-      'opacity': 1
-    };
+    
+
     districtsLayer.setStyle(districtStyle);
     event.layer.setStyle(highlight);
   })

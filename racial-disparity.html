@@ -32,7 +32,7 @@ permalink: /racial-disparity/
       <select id="categories">
         <optgroup label="Categories">
           {% for category in categories %}
-          <option><a href="#{{ category.name | slugify }}">{{ category.name }}</a></option>
+          <option value="{{ category.name | slugify }}">{{ category.name }}</option>
           {% endfor %}
         </optgroup>
       </select>
@@ -76,3 +76,9 @@ permalink: /racial-disparity/
       {% endfor %}    
   </div>
 </div>
+<script>
+  document.getElementById('categories').addEventListener('change', function (evt) {
+    var value = this.value;
+    window.location.hash = value;
+  })
+</script>
