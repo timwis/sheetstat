@@ -40,12 +40,11 @@
   var setDistrictStyle = function (feature, highlighted){
     var style = {
       "color": "#58c04d",
-      "weight": 0.8,
+      "weight": 0.5,
       "opacity": 0.85
     };
+
     // make inital polygon style match default value 
-    // TODO: this could be refactored to simply check 
-    // value of dropdown on load
     if (feature.properties.DIST_NAME == planningDistrictDropdown.value){
       style.color = '#2176d2'
     }
@@ -55,6 +54,7 @@
   // Add districts layer
   var districtsLayer = L.geoJson(districtsGeojson, {
     style: setDistrictStyle,
+
     // Create label popup on hover
     onEachFeature: function (feature, layer){
       if (feature.properties.DIST_NAME) {
@@ -77,7 +77,6 @@
     // Set dropdown to the clicked planning district
     // and reset polygon style when another is clicked
     planningDistrictDropdown.value = districtName
-    
 
     districtsLayer.setStyle(districtStyle);
     event.layer.setStyle(highlight);
