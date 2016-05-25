@@ -27,19 +27,22 @@ permalink: /racial-disparity/
     {% assign categories = site.data.racial_disparity | group_by: 'Category' %}
     {% assign labels = site.data.racial_disparity_labels %}
 
-    <div id="" class="category-selector small-24 column prm pbs">
-      <label for="categories">Choose a category</label>
-      <select id="categories">
-        <optgroup label="Categories">
-          {% for category in categories %}
-          <option value="{{ category.name | slugify }}">{{ category.name }}</option>
-          {% endfor %}
-        </optgroup>
-      </select>
+    <!-- Dropdown to select category-->
+    <div id="" class="category-selector small-24 column ptm pbs">
+      <div class="clearfix">
+        <label for="categories">Choose a category</label>
+        <select id="categories" class="right">
+          <optgroup label="Categories">
+            {% for category in categories %}
+              <option value="{{ category.name | slugify }}">{{ category.name }}</option>
+            {% endfor %}
+          </optgroup>
+        </select>
+      </div>
     </div>
     
     {% for category in categories %}
-    <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+    <h1 id="{{ category.name | slugify }}" class="contrast category-section clearfix">{{ category.name }}
       <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
 
       {% for row in category.items %}

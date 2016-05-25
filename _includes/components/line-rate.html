@@ -39,7 +39,7 @@
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',
         seriesHeader: 'dimension',
-        summary: '{{ row.description }}',
+//        summary: '{{ row.description | escape }}',
         valueTransform: Chartist.noop
       })
     ],

@@ -33,7 +33,7 @@
 //      }
     },
     lineSmooth: Chartist.Interpolation.none({
-      fillHoles: true,
+      fillHoles: true, // connects line when missing data points
     }), 
     plugins: [
       Chartist.plugins.tooltip({
@@ -45,7 +45,7 @@
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',
         seriesHeader: 'year',
-        summary: '{{ row.description }}',
+//        summary: '{{ row.description | escape}}',
         valueTransform: Chartist.noop
       })
     ],

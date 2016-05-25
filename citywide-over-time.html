@@ -11,12 +11,12 @@ permalink: /citywide-over-time/
   {% assign labels = site.data.citywide_over_time_labels %}
     
     <!-- Dropdown to select category-->
-    <div id="" class="category-selector small-24 column prm pbs">
+    <div id="" class="category-selector small-24 column ptm pbs">
       <label for="categories">Choose a category</label>
       <select id="categories">
         <optgroup label="Categories">
           {% for category in categories %}
-          <option><a href="#{{ category.name | slugify }}">{{ category.name }}</a></option>
+            <option value="{{ category.name | slugify }}">{{ category.name }}</option>
           {% endfor %}  
         </optgroup>
       </select>
@@ -67,4 +67,8 @@ permalink: /citywide-over-time/
     </div>
   </div>
 </div>
-
+<script>  document.getElementById('categories').addEventListener('change', function (evt) {
+  var value = this.value;
+  window.location.hash = value;
+})
+</script>

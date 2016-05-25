@@ -13,7 +13,7 @@ permalink: /planning-districts/
     {% assign labels = site.data.planning_district_labels %}
     
     <!-- Dropdown to select district-->
-    <div id="" class="district-selector small-24 column prm pbs">
+    <div id="" class="district-selector medium-12 column prm pbs">
       <label for="planning-district">Choose a district</label>
       <select id="planning-district">
         <optgroup label="Planning Districts">
@@ -24,18 +24,16 @@ permalink: /planning-districts/
       </select>
     </div>
     <!-- Dropdown to select category-->
-<!--
-    <div id="" class="category-selector small-24 column prm pbs">
+    <div id="" class="category-selector medium-12 column prm pbs">
       <label for="categories">Choose a category</label>
       <select id="categories">
         <optgroup label="Categories">
           {% for category in categories %}
-          <option><a href="#{{ category.name | slugify }}">{{ category.name }}</a></option>
+            <option value="{{ category.name | slugify }}">{{ category.name }}</option>
           {% endfor %}
         </optgroup>
       </select>
     </div>
--->
     <!-- Loop over indicators, group by category and display cards-->
     <div id="indicators" class="">
      
@@ -81,6 +79,10 @@ permalink: /planning-districts/
   var districtsGeojson = {{ site.data.planning_district_boundaries | jsonify }}
   var data = {{ site.data.planning_district | jsonify }}
   var labels = {{ site.data.planning_district_labels | jsonify }}
+  document.getElementById('categories').addEventListener('change', function (evt) {
+    var value = this.value;
+    window.location.hash = value;
+  })
 </script>
 <script src="{{ site.baseurl }}/scripts/planning-districts.js"></script>
 
