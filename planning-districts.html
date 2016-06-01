@@ -50,9 +50,9 @@ permalink: /planning-districts/
                 <div class="content-block">
                   <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
                     {% if row.dataType == 'Percentage' %}
-                      {{ row.Citywide | times:100 }}%
+                      {{ row.Central | times: 100 }}%
                     {% else %}
-                      {{ row.Citywide }}
+                      {{ row.Central }}
                     {% endif %}
                   </h1>
                   <h4 class="h2">{{ row.Indicator }}</h4><br>

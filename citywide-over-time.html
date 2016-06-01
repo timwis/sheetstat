@@ -6,7 +6,7 @@ permalink: /citywide-over-time/
 <div class="row chart-section">
   <div class="medium-24 column">
 
-    <!-- Loop through Indicators and group by Category -->
+  <!-- Loop through Indicators and group by Category -->
   {% assign categories = site.data.citywide_over_time | group_by: 'Category' %}
   {% assign labels = site.data.citywide_over_time_labels %}
     
