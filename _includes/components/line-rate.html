@@ -23,7 +23,8 @@
     axisX: {
       showGrid: false,
       labelInterpolationFnc: function (value) {
-        return value.toString().slice(-2)
+        // return value.toString().slice(-2) // shorter years on small screens
+        return value
       }
     },
     lineSmooth: Chartist.Interpolation.none({
@@ -33,7 +34,7 @@
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
         tooltipFnc: function(_, value) {
-          return value;
+          return (+value).toLocaleString();
         }
       }),
       Chartist.plugins.ctAccessibility({

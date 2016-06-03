@@ -28,18 +28,17 @@
         offset: 120
       },
       axisX: {
-        offset: 20
-  //      labelInterpolationFnc: function (value) {
-  //        // do whatever math operation you want here
-  //        return Math.floor(value * 100);
-  //      }
+        offset: 20,
+        labelInterpolationFnc: function (value) {
+          return (+value).toLocaleString();
+        }
       },
       plugins: [
         Chartist.plugins.tooltip({
-          class: 'chartist-tooltip'
-  //        tooltipFnc: function(_, value) {
-  //          return Math.floor(value * 100) + '%';
-  //        }
+          class: 'chartist-tooltip',
+          tooltipFnc: function(_, value) {
+            return (+value).toLocaleString();
+          }
         }),
         Chartist.plugins.ctAccessibility({
           caption: {{ row.Indicator | jsonify }},
