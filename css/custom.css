@@ -37,6 +37,7 @@ g.ct-label {
   height: 100%;
   overflow: scroll;
   padding-right: 1px;
+  padding-bottom: 102px;
 }
 .label {
   display: block!important;
