@@ -36,6 +36,7 @@ permalink: /planning-districts/
     </div>
     <!-- Loop over indicators, group by category and display cards-->
     <div id="indicators" class="">
+    <div id="top"></div>
       <!-- Category Heading -->
         {% for category in categories %}
           <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %}">{{ category.name }}
