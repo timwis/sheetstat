@@ -25,7 +25,7 @@ permalink: /citywide-over-time/
       
     <!-- Category Headings -->
     {% for category in categories %}
-      <h1 id="{{ category.name | slugify }}" class="contrast chart-section">{{ category.name }}
+      <h1 id="{{ category.name | slugify }}" class="contrast {% if category.name == 'Social determinants of health' %}first-section{% else %}category-section{% endif %}">{{ category.name }}
         <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
       </h1>
 
@@ -48,7 +48,7 @@ permalink: /citywide-over-time/
           <div class="medium-8 column end">
             <aside id="secondary" class="related plm-mu" role="complementary">
             <!-- Description of indicator & comments -->
-            {% if row.description %}<p>{{ row.description }}</p>{% endif %}
+              {% if row.description %}<p class="description">{{ row.description }}</p>{% endif %}
             {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
             <!-- Data source(s) -->
             {% if row.dataSource %}<p class="source"><strong>Source:</strong> {{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %} 

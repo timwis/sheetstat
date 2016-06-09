@@ -36,12 +36,10 @@ permalink: /planning-districts/
     </div>
     <!-- Loop over indicators, group by category and display cards-->
     <div id="indicators" class="">
-     
       <!-- Category Heading -->
         {% for category in categories %}
-          <h1 id="{{ category.name | slugify }}" class="contrast category-section">{{ category.name }}
+          <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %}">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
-
           <div class="row equal-height">
             {% for row in category.items %}
             <!--@timwis: can't seem to get the line below to only append the class `end` for the last row in a category-->
@@ -67,6 +65,10 @@ permalink: /planning-districts/
               </div>
             </div>
           {% endfor %}
+          <!-- End of each chart section with BACK TO TOP link -->
+          <div class="medium-24 column top">
+            <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
+          </div>  
         </div>  
       {% endfor %}
     </div>
