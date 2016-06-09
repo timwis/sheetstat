@@ -11,34 +11,36 @@ permalink: /planning-districts/
     <div id="district-info" class="ptm medium-16 small-24 column end">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
-    
-    <!-- Dropdown to select district-->
-    <div id="" class="district-selector medium-12 column prm pbs">
-      <label for="planning-district">Choose a district</label>
-      <select id="planning-district">
-        <optgroup label="Planning Districts">
-          {% for label in labels %}
-          <option>{{ label }}</option>
-          {% endfor %}
-        </optgroup>
-      </select>
-    </div>
-    <!-- Dropdown to select category-->
-    <div id="" class="category-selector medium-12 column prm pbs">
-      <label for="categories">Choose a category</label>
-      <select id="categories">
-        <optgroup label="Categories">
-          {% for category in categories %}
-            <option value="{{ category.name | slugify }}">{{ category.name }}</option>
-          {% endfor %}
-        </optgroup>
-      </select>
-    </div>
+        <div id="selectors" class="medium 24-column">
+          <!-- Dropdown to select district-->
+          <div id="" class="district-selector medium-12 column prm pbs">
+            <label for="planning-district">Choose a district</label>
+            <select id="planning-district">
+              <optgroup label="Planning Districts">
+                {% for label in labels %}
+                <option>{{ label }}</option>
+                {% endfor %}
+              </optgroup>
+            </select>
+          </div>
+          <!-- Dropdown to select category-->
+          <div id="" class="category-selector medium-12 column prm pbs">
+            <label for="categories">Choose a category</label>
+            <select id="categories">
+              <optgroup label="Categories">
+                {% for category in categories %}
+                <option value="{{ category.name | slugify }}">{{ category.name }}</option>
+                {% endfor %}
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      <div id="indicators" class="">
     <!-- Loop over indicators, group by category and display cards-->
-    <div id="indicators" class="">
-    <div id="top"></div>
+
       <!-- Category Heading -->
         {% for category in categories %}
+        <div id="top"></div>
           <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %}">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
           <div class="row equal-height">

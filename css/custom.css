@@ -18,6 +18,10 @@ body {
   height: 100%;
   padding-left: 0px;
 }
+#selectors {
+  position: fixed;
+  width: 65%
+}
 .fa {
   color: #96C9FF!important;
 }
@@ -38,6 +42,8 @@ g.ct-label {
   overflow: scroll;
   padding-right: 1px;
   padding-bottom: 102px;
+  position: absolute;
+  top: 85px
 }
 .label {
   display: block!important;
@@ -192,10 +198,16 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   .ct-bar {
     stroke-width: 3%;
   }
+  #indicators {
+    top: 130px;
+  }
 }
-@media (max-width: 700px) {
+@media (max-width: 640px) {
   .ct-bar {
     stroke-width: 4%;
+  }
+  #indicators {
+    top: 160px;
   }
 }
 .current {
