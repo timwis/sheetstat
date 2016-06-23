@@ -1,6 +1,6 @@
 # Site settings
 title: Community Health Explorer
-baseurl: "/community-health-explorer" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 
 # Build settings
 markdown: kramdown
@@ -8,16 +8,32 @@ kramdown:
   input: GFM
 
 # Prose configuration
-prose: 
+# set ignore parameter to hide files we don't want available to edit
+prose:
   rooturl: "_data"
   ignore: ['/css', '/_includes', '/_layouts', '/scripts', '/', 'planning_district_boundaries.json', '*.yml', '*.geojson']
 
 # Ruby config for plugins
+
+# page_gen-dirs: true # uncomment if you prefer to generate named folders
+page_gen:
+    # name of the data file
+  - data: 'racial_disparity'
+    # name of the template to use to generate the page, defaults to value of `data`
+    template: 'metadata'
+    # field used to generate the filename
+    name:  'Indicator'
+    # directory in which files are to be generated, defaults to value of `data`
+    dir: 'metadata/racial_disparity'
+    # extension used to generate the filename, defaults to .html
+    extension:
+  # can take multiple data sources
+  # - ...
+
 #gems:
-#  - octopress-paginate
-#
+    #  - octopress-paginate
 #exclude:
-#- Gemfile
-#- Gemfile.lock
-#- vendor
-#- .travis.yml
+    #- Gemfile
+    #- Gemfile.lock
+    #- vendor
+    #- .travis.yml
