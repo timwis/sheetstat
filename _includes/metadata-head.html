@@ -1,0 +1,25 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel='icon' type='image/x-icon' href="//cityofphiladelphia.github.io/patterns/images/favicon.ico">
+
+
+    <meta property="og:title" content="{{ site.title }}"/>
+    <meta property="og:url" content="{{ site.baseurl }}/racial-disparity/#{{ page.Indicator | slugify }}"/>
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:image" content="{{ site.baseurl }}/assets/images/sharing_image.png" />
+    <meta name="twitter:card" content="photo" />
+    <meta name="twitter:site" content="@PhilaGovData" />
+    <meta name="twitter:creator" content="@PhilaGovData" />
+    <link rel="image_src" href="{{ site.baseurl }}/assets/images/sharing_image.png"/>
+    {% if page.Category contains 'racial_disparity' %}
+    <meta property="og:description" content="{{ page.description }}" />
+    {% else %}
+    <meta property="og:description" content="This is a description." />
+    {% endif %}
+</head>
