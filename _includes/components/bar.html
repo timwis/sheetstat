@@ -1,6 +1,6 @@
 {% assign id = include.row.Indicator | slugify %}
-{% if page.title == 'Top 10 Cities' %} 
-<div id="chart-{{ id }}" class="ct-chart ct-major-seventh"></div>{% else %}  
+{% if page.title == 'Top 10 Cities' %}
+<div id="chart-{{ id }}" class="ct-chart ct-major-seventh"></div>{% else %}
 <div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
 {% endif %}
 <!--for debugging-->
@@ -9,7 +9,7 @@
 <script>
   (function () {
     var container = '#chart-{{ id }}'
-    var labels = {{ include.labels | jsonify }} 
+    var labels = {{ include.labels | jsonify }}
     var row = {{ include.row | jsonify }}
 
     // Construct array of objects from data using indicators
@@ -22,6 +22,7 @@
     }
     var chartOpts = {
       low: 0,
+      chartPadding: 20,
       onlyInteger: false,
       horizontalBars: true,
       scaleMinSpace: 20,
@@ -34,14 +35,15 @@
         offset: 20,
         labelInterpolationFnc: function (value) {
           // do whatever math operation you want here
-          return Math.round(value * 1000) / 10 + '%';
+          return Math.round(value * 100) + '%';
+            // return value;
         }
       },
       plugins: [
         Chartist.plugins.tooltip({
           class: 'chartist-tooltip',
           tooltipFnc: function(_, value) {
-            return Math.round(value * 1000) / 10 + '%';
+            return Math.round(value * 100) / 10 + '%';
           }
         }),
         Chartist.plugins.ctAccessibility({

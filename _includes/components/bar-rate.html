@@ -1,6 +1,6 @@
 {% assign id = include.row.Indicator | slugify %}
-{% if page.title == 'Top 10 Cities' %} 
-  <div id="chart-{{ id }}" class="ct-chart ct-major-seventh"></div>{% else %}  
+{% if page.title == 'Top 10 Cities' %}
+  <div id="chart-{{ id }}" class="ct-chart ct-major-seventh"></div>{% else %}
   <div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
 {% endif %}
 <script>
@@ -19,6 +19,7 @@
     }
     var chartOpts = {
       low: 0,
+      chartPadding: 20,
       onlyInteger: false,
       horizontalBars: true,
       scaleMinSpace: 30,
