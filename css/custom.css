@@ -1,8 +1,8 @@
-body { 
-  font-family: 'Open Sans', sans-serif; 
+body {
+  font-family: 'Open Sans', sans-serif;
   margin:0; padding:0;
 }
-#map { 
+#map {
   height: 100%;
   left: -20px;
   margin: 0px;
@@ -183,7 +183,7 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
 /* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
 .ct-bar {
   /* The width of your bars */
-  stroke-width: 5%;
+  /*stroke-width: 5%;*/
 }
 .ct-series-a .ct-bar {
   /* Colour of your bars */
@@ -194,20 +194,26 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   stroke: #f99300;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .ct-bar {
     stroke-width: 3%;
   }
   #indicators {
     top: 130px;
   }
+  .ct-label {
+    font-size: 0.5rem!important
+  }
 }
-@media (max-width: 640px) {
+@media (min-width: 451px) {
   .ct-bar {
     stroke-width: 4%;
   }
   #indicators {
     top: 160px;
+  }
+  .ct-label {
+    font-size: 0.8rem!important
   }
 }
 .current {

@@ -22,14 +22,18 @@
     }
     var chartOpts = {
       low: 0,
-      chartPadding: 20,
-      onlyInteger: false,
+      chartPadding: {
+          right: 60
+      },
+      // onlyInteger: true,
       horizontalBars: true,
-      scaleMinSpace: 20,
-      seriesBarDistance: 5,
+      // scaleMinSpace: 30,
+      // seriesBarDistance: 15,
       axisY: {
         showGrid: false,
-        offset: 120
+        offset: 120,
+        // scaleMinSpace: 10,
+        // seriesBarDistance: 35
       },
       axisX: {
         offset: 20,
@@ -43,7 +47,7 @@
         Chartist.plugins.tooltip({
           class: 'chartist-tooltip',
           tooltipFnc: function(_, value) {
-            return Math.round(value * 100) / 10 + '%';
+            return Math.round(value * 1000) / 10 + '%';
           }
         }),
         Chartist.plugins.ctAccessibility({
@@ -55,7 +59,7 @@
       ]
     }
     var responsiveOpts = [
-      ['screen and (min-width: 641px) and (max-width: 1024px)', {
+      ['screen and (min-width: 451px) and (max-width: 1024px)', {
         seriesBarDistance: 10 //,
         // axisX: {
         //   labelInterpolationFnc: function (value) {
@@ -63,14 +67,18 @@
         //   }
         // }
       }],
-      ['screen and (max-width: 640px)', {
-        seriesBarDistance: 20,
-        scaleMinSpace: 40//,
-        // axisX: {
+      ['screen and (max-width: 450px)', {
+        seriesBarDistance: 10,
+        // scaleMinSpace: 40//,
+        chartPadding: {
+            right: 30
+        },
+        axisY: {
+          scaleMinSpace: 15
         //   labelInterpolationFnc: function (value) {
         //     return value[0];
         //   }
-        // }
+        }
       }]
     ]
   new Chartist.Bar(container, chartData, chartOpts, responsiveOpts)
