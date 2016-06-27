@@ -20,16 +20,17 @@
     var chartOpts = {
       low: 0,
       chartPadding: 20,
-      onlyInteger: false,
+    //   onlyInteger: false,
       horizontalBars: true,
-      scaleMinSpace: 30,
-      seriesBarDistance: 5,
+    //   scaleMinSpace: 30,
+    //   seriesBarDistance: 15,
       axisY: {
         showGrid: false,
         offset: 120
       },
       axisX: {
         offset: 20,
+        // onlyInteger: true,
         labelInterpolationFnc: function (value) {
           return (+value).toLocaleString();
         }
@@ -48,7 +49,26 @@
           valueTransform: Chartist.noop
         })
       ]
-    }
-    new Chartist.Bar(container, chartData, chartOpts)
+    },
+    var responsiveOpts = [
+      ['screen and (min-width: 641px) and (max-width: 1024px)', {
+        seriesBarDistance: 10 //,
+        // axisX: {
+        //   labelInterpolationFnc: function (value) {
+        //     return value;
+        //   }
+        // }
+      }],
+      ['screen and (max-width: 640px)', {
+        seriesBarDistance: 20,
+        scaleMinSpace: 40//,
+        // axisX: {
+        //   labelInterpolationFnc: function (value) {
+        //     return value[0];
+        //   }
+        // }
+      }]
+    ];
+    new Chartist.Bar(container, chartData, chartOpts, responsiveOpts)
   })()
 </script>
