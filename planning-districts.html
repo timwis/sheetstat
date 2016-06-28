@@ -7,7 +7,7 @@ permalink: /planning-districts/
 <div class="row">
   <div id="map-wrapper">
     <div id="map" class="medium-8 column show-for-medium"></div>
-  
+
     <div id="district-info" class="ptm medium-16 small-24 column end">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
@@ -59,7 +59,7 @@ permalink: /planning-districts/
                   <h4 class="h2">{{ row.Indicator }}</h4><br>
                   <!--{% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
                   {% if row.description %}<p>{{ row.description | markdownify }}</p>{% endif %}
-                  {% if row.chartComment %}<p>{{ row.chartComment }}</p>{% endif %}
+                  {% if row.chartComment %}<p class="source"><strong>Notes: </strong><br>{{ row.chartComment }}</p>{% endif %}
                   {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
                     {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
                   {% endif %}
@@ -71,8 +71,8 @@ permalink: /planning-districts/
           <!-- End of each chart section with BACK TO TOP link -->
           <div class="medium-24 column top">
             <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
-          </div>  
-        </div>  
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>
@@ -90,4 +90,3 @@ permalink: /planning-districts/
   })
 </script>
 <script src="{{ site.baseurl }}/scripts/planning-districts.js"></script>
-

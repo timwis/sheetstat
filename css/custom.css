@@ -26,10 +26,12 @@ body {
   color: #96C9FF!important;
 }
 g.ct-label {
-  color: #444444!important;
+  /*color: #444444!important;*/
 }
 .ct-label {
   color: #444444!important;
+  text-align: center!important;
+  display: inline-block;
 }
 
 .district-selector, .category-selector {
@@ -202,7 +204,7 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
     top: 130px;
   }
   .ct-label {
-    font-size: 0.5rem!important
+    font-size: 0.5rem!important;
   }
 }
 @media (min-width: 451px) {
