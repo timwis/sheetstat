@@ -20,7 +20,7 @@ body {
 }
 #selectors {
   position: fixed;
-  width: 65%
+  width: 65%;
 }
 .fa {
   color: #96C9FF!important;
@@ -43,9 +43,9 @@ g.ct-label {
   height: 100%;
   overflow: scroll;
   padding-right: 1px;
-  padding-bottom: 102px;
+  /*padding-bottom: 102px;*/
   position: absolute;
-  top: 85px
+  top: 90px
 }
 .label {
   display: block!important;
@@ -212,7 +212,7 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
     stroke-width: 4%;
   }
   #indicators {
-    top: 160px;
+    /*top: 80px;*/
   }
   .ct-label {
     font-size: 0.8rem!important
