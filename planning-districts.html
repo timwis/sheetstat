@@ -45,7 +45,7 @@ permalink: /planning-districts/
           <div class="row equal-height">
             {% for row in category.items %}
             <!--@timwis: can't seem to get the line below to only append the class `end` for the last row in a category-->
-            <div class="medium-8 small-12 column {% if row.Indicator | last %}end{% endif %}">
+            <div class="medium-8 small-12 column {% if row.Indicator | last %}end{% endif %}" id="card-{{ row.Indicator | slugify }}">
               <div class="card equal">
                 <div class="content-block">
                   <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
@@ -57,13 +57,13 @@ permalink: /planning-districts/
                   </h1>
                   <h4 class="h2">{{ row.Indicator }}</h4><br>
                   <!--{% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
-                  {% if row.description %}<span class="source"><strong>Description: </strong></span>
-				  <p class="description">{{ row.description | markdownify }}</p>{% endif %}
+                  {% if row.description %}<span><strong>Description: </strong></span>
+				  <span class="description">{{ row.description | markdownify }}</span></p>{% endif %}
                   {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
                   {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
                     {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
                   {% endif %}
-                  <p><i class="fa fa-twitter fa-2x"></i></p>
+                  <!-- <p><i class="fa fa-twitter fa-2x"></i></p> -->
                 </div>
               </div>
             </div>
