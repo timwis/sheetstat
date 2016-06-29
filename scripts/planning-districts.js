@@ -29,14 +29,14 @@
     minZoon: 12,
     maxZoom: 16
   }).addTo(map)
-  
+
   // define polygon default styles
   var districtStyle = {
     "color": "#58c04d",
     "weight": 0.5,
     "opacity": 0.85
   };
-  
+
   var setDistrictStyle = function (feature, highlighted){
     var style = {
       "color": "#58c04d",
@@ -44,13 +44,13 @@
       "opacity": 0.85
     };
 
-    // make inital polygon style match default value 
+    // make inital polygon style match default value
     if (feature.properties.DIST_NAME == planningDistrictDropdown.value){
       style.color = '#2176d2'
     }
     return style;
   };
-  
+
   // Add districts layer
   var districtsLayer = L.geoJson(districtsGeojson, {
     style: setDistrictStyle,
@@ -58,14 +58,14 @@
     // Create label popup on hover
     onEachFeature: function (feature, layer){
       if (feature.properties.DIST_NAME) {
-        layer.bindLabel(feature.properties.DIST_NAME, { noHide: true });          
+        layer.bindLabel(feature.properties.DIST_NAME, { noHide: true });
       }
     }
   }).addTo(map)
 
-  // When a district is clicked on the map, update the document to reflect its indicators
+  // When a district is clicked on the map, update the sidebar to reflect its indicators
   districtsLayer.on('click', function (event) {
-    var districtName = event.layer.feature.properties.DIST_NAME 
+    var districtName = event.layer.feature.properties.DIST_NAME
     var highlight = {
       'color': '#2176d2',
       'weight': 0.5,
@@ -73,7 +73,8 @@
     };
     console.log(event.layer);
     updateIndicators(districtName)
-    
+	hideEmptyCards(districtName)
+
     // Set dropdown to the clicked planning district
     // and reset polygon style when another is clicked
     planningDistrictDropdown.value = districtName
@@ -89,6 +90,18 @@
       document.getElementById('value-' + indicator).innerText = indicators[indicator]
     }
   }
+  // check if indicator value is nil & add .hidden class
+  function hideEmptyCards (districtName) {
+	var indicators = indexedData[districtName] || {}
+	for (var indicator in indicators) {
+		if (indicators[indicator]) {
+		  document.getElementById('card-' + indicator).classList.remove('hidden')
+  		} else {
+		  // remove('hidden')
+		  document.getElementById('card-' + indicator).classList.add('hidden')
+		}
+	}
+  }
   // Normalize data string contents to avoid breaking charts
   function slugify (text) {
     return text.toString().toLowerCase().trim()
@@ -100,5 +113,5 @@
   function percentify (value) {
     return (Math.round(value * 100 * 10) / 10) + '%'
   }
-  
+
 })()
