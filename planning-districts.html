@@ -57,7 +57,7 @@ permalink: /planning-districts/
                   </h1>
                   <h4 class="h2">{{ row.Indicator }}</h4><br>
                   <!--{% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
-                  {% if row.description %}<span><strong>Description: </strong></span>
+                  {% if row.description %}<span class="source"><strong>Description: </strong></span>
 				  <span class="description">{{ row.description | markdownify }}</span></p>{% endif %}
                   {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
                   {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
