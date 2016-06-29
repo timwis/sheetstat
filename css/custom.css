@@ -82,8 +82,6 @@ g.ct-label {
 .description {
   /*margin-top: 10px;*/
 }
-.app .page-title-container {
-}
 .top {
   border-bottom: 1px dotted #a1a1a1;
   padding-bottom: 10px;
@@ -170,7 +168,8 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   /* Create a dashed line with a pattern */
 /*  stroke-dasharray: 10px 20px;*/
 }
-/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+/* This selector overrides the points style on line charts.
+Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
 .ct-series-a .ct-point {
   /* Colour of your points */
   stroke: #2176d2!important;
@@ -182,10 +181,11 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
 .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
   fill: #2176d2;
 }
-/* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
+/* Use this selector to override bar styles on bar charts.
+Bars are also strokes so you have maximum freedom in styling them. */
 .ct-bar {
   /* The width of your bars */
-  /*stroke-width: 5%;*/
+  stroke-width: 4%;
 }
 .ct-series-a .ct-bar {
   /* Colour of your bars */
@@ -196,7 +196,11 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   stroke: #f99300;
 }
 
+/*RESPONSIVE CHART STYLES*/
 @media (max-width: 450px) {
+  h1 {
+    font-size: 1rem;
+  }
   .ct-bar {
     stroke-width: 3%;
   }
@@ -206,10 +210,19 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
   .ct-label {
     font-size: 0.5rem!important;
   }
+  .ct-series-a .ct-point {
+    stroke-width: 6px;
+  }
+  .ct-series-a .ct-line {
+    stroke-width: 3px;
+  }
+  .to-top {
+    display: hidden;
+  }
 }
 @media (min-width: 451px) {
   .ct-bar {
-    stroke-width: 4%;
+    /*stroke-width: 4%;*/
   }
   #indicators {
     /*top: 80px;*/
@@ -223,4 +236,7 @@ svg > g:nth-child(2) > g > line:nth-child(12) {
 }
 #site-nav ul li.current a {
   color: white!important;
+}
+.hidden {
+  display: none;
 }
