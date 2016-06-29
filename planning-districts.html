@@ -37,7 +37,6 @@ permalink: /planning-districts/
         </div>
       <div id="indicators" class="">
     <!-- Loop over indicators, group by category and display cards-->
-
       <!-- Category Heading -->
         {% for category in categories %}
         <div id="top"></div>
@@ -58,7 +57,8 @@ permalink: /planning-districts/
                   </h1>
                   <h4 class="h2">{{ row.Indicator }}</h4><br>
                   <!--{% if row.description %}<p aria-haspopup="true" class="has-tip" title="{{ row.description }}">More</p>{% endif %}-->
-                  {% if row.description %}<p class="source"><strong>Description: </strong></p><p class="description">{{ row.description | markdownify }}</p>{% endif %}
+                  {% if row.description %}<span class="source"><strong>Description: </strong></span>
+				  <p class="description">{{ row.description | markdownify }}</p>{% endif %}
                   {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
                   {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
                     {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
@@ -70,7 +70,7 @@ permalink: /planning-districts/
           {% endfor %}
           <!-- End of each chart section with BACK TO TOP link -->
           <div class="medium-24 column top">
-            <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> back to top</a>
+            <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i><span class="to-top"> back to top</span></a>
           </div>
         </div>
       {% endfor %}
