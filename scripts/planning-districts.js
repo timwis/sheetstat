@@ -51,7 +51,7 @@
     return style;
   };
 
-  // Add districts layer
+  // Add districts polygon layer
   var districtsLayer = L.geoJson(districtsGeojson, {
     style: setDistrictStyle,
 
@@ -71,7 +71,7 @@
       'weight': 0.5,
       'opacity': 1
     };
-    console.log(event.layer);
+    console.log(event.layer)
     updateIndicators(districtName)
 	hideEmptyCards(districtName)
 
@@ -82,7 +82,8 @@
     districtsLayer.setStyle(districtStyle);
     event.layer.setStyle(highlight);
   })
-  // update the numeric values in right column when a new
+
+  // update the numeric values in sidebar when a new
   // district is selected
   function updateIndicators (districtName) {
     var indicators = indexedData[districtName] || {}
@@ -90,18 +91,21 @@
       document.getElementById('value-' + indicator).innerText = indicators[indicator]
     }
   }
-  // check if indicator value is nil & add .hidden class
+
+  // hide cards when indicator value is empty
   function hideEmptyCards (districtName) {
 	var indicators = indexedData[districtName] || {}
 	for (var indicator in indicators) {
-		if (indicators[indicator]) {
-		  document.getElementById('card-' + indicator).classList.remove('hidden')
-  		} else {
-		  // remove('hidden')
+		if (!indicators[indicator] || indicators[indicator] === '0%') {
+		console.log(indicators[indicator], 'hiding')
 		  document.getElementById('card-' + indicator).classList.add('hidden')
+  		} else {
+		  console.log(indicators[indicator], 'showing')
+		  document.getElementById('card-' + indicator).classList.remove('hidden')
 		}
 	}
   }
+
   // Normalize data string contents to avoid breaking charts
   function slugify (text) {
     return text.toString().toLowerCase().trim()
@@ -109,9 +113,9 @@
       .replace(/\-\-+/g, '-')         // Replace multiple - with single -
       .replace(/^\-|\-$/i, '')        // Remove leading/trailing hyphen
   }
+  
   // Formats numeric values as percentages
   function percentify (value) {
     return (Math.round(value * 100 * 10) / 10) + '%'
   }
-
 })()
