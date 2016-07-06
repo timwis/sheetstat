@@ -29,7 +29,7 @@
     },
     lineSmooth: Chartist.Interpolation.none({
       fillHoles: true,
-    }), 
+    }),
     plugins: [
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
@@ -45,6 +45,29 @@
       })
     ],
   }
-  new Chartist.Line(container, chartData, chartOpts)
+  var responsiveOpts = [
+    ['screen and (min-width: 451px) and (max-width: 1024px)', {
+      seriesBarDistance: 10 //,
+      // axisX: {
+      //   labelInterpolationFnc: function (value) {
+      //     return value;
+      //   }
+      // }
+    }],
+    ['screen and (max-width: 450px)', {
+      seriesBarDistance: 90,
+      // scaleMinSpace: 40//,
+      chartPadding: {
+          right: 30
+      },
+      axisY: {
+        scaleMinSpace: 15
+      //   labelInterpolationFnc: function (value) {
+      //     return value[0];
+      //   }
+      }
+    }]
+  ]
+  new Chartist.Line(container, chartData, chartOpts, responsiveOpts)
 })()
 </script>
