@@ -1,7 +1,7 @@
 {
 "type": "FeatureCollection",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
+
 "features": [
 { "type": "Feature", "properties": { "OBJECTID_1": 1, "OBJECTID": 14, "DIST_NAME": "River Wards", "ABBREV": "RW" }, "geometry": { "type": "Point", "coordinates": [ -75.095993577247725, 39.987872372455961 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 2, "OBJECTID": 3, "DIST_NAME": "North Delaware", "ABBREV": "NDEL" }, "geometry": { "type": "Point", "coordinates": [ -75.028283506279891, 40.033521044547847 ] } },
@@ -13,7 +13,6 @@
 { "type": "Feature", "properties": { "OBJECTID_1": 8, "OBJECTID": 8, "DIST_NAME": "South", "ABBREV": "STH" }, "geometry": { "type": "Point", "coordinates": [ -75.164838612651906, 39.924648414589569 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 9, "OBJECTID": 15, "DIST_NAME": "North", "ABBREV": "NOR" }, "geometry": { "type": "Point", "coordinates": [ -75.140703879920792, 40.008011871687287 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 10, "OBJECTID": 16, "DIST_NAME": "Lower Northwest", "ABBREV": "LNW" }, "geometry": { "type": "Point", "coordinates": [ -75.222747563900143, 40.042525293218766 ] } },
-{ "type": "Feature", "properties": { "OBJECTID_1": 11, "OBJECTID": 6, "DIST_NAME": "Lower South", "ABBREV": "LS" }, "geometry": { "type": "Point", "coordinates": [ -75.176937617724761, 39.901543845959694 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 12, "OBJECTID": 1, "DIST_NAME": "Lower Northeast", "ABBREV": "LNE" }, "geometry": { "type": "Point", "coordinates": [ -75.089241975971063, 40.030388657466567 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 13, "OBJECTID": 2, "DIST_NAME": "Central Northeast", "ABBREV": "CNE" }, "geometry": { "type": "Point", "coordinates": [ -75.062912539335755, 40.064173927486181 ] } },
 { "type": "Feature", "properties": { "OBJECTID_1": 14, "OBJECTID": 11, "DIST_NAME": "West", "ABBREV": "WST" }, "geometry": { "type": "Point", "coordinates": [ -75.231574103310678, 39.964694431369708 ] } },
