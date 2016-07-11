@@ -43,9 +43,10 @@ g.ct-label {
   height: 100%;
   overflow: scroll;
   padding-right: 1px;
-  padding-bottom: 132px;
-  position: absolute;
-  top: 90px
+  /* padding-bottom: 132px; */
+  position: static;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 .label {
   display: block!important;
@@ -223,7 +224,7 @@ Bars are also strokes so you have maximum freedom in styling them. */
     /*stroke-width: 4%;*/
   }
   #indicators {
-    top: 80px;
+    /* top: 80px; */
   }
   .ct-label {
     font-size: 0.8rem!important
@@ -240,4 +241,3 @@ Bars are also strokes so you have maximum freedom in styling them. */
 }
 a.button.icon {
     width: 220px;
-}

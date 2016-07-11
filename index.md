@@ -18,10 +18,10 @@ title: Community Health Assessment
 
 		<p>The Explorer is intended to provide easy-to-use, responsive and accessible visualization tools for viewing the vast amount of data collected annually for the Community Health Assessment.</p>
 
-		<p>The Community Health Assessment report is [available for download](http://www.phila.gov/health/commissioner/DataResearch.html) on the Department of Public Health site.</p>
+		<p>The Community Health Assessment report is <a href="http://www.phila.gov/health/commissioner/DataResearch.html">available for download</a> on the Department of Public Health site.</p>
 
 	</div>
-	
+
 	<aside id="secondary" class="medium-8 column related pll-mu">
 		<h2>About the Application</h2>
 
