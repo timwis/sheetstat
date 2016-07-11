@@ -238,3 +238,6 @@ Bars are also strokes so you have maximum freedom in styling them. */
 .hidden {
   display: none;
 }
+a.button.icon {
+    width: 220px;
+}
