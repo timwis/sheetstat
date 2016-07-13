@@ -21,6 +21,7 @@ body {
 #selectors {
   position: fixed;
   width: 65%;
+  background: white;
 }
 .fa {
   color: #96C9FF!important;
@@ -39,14 +40,12 @@ g.ct-label {
   background-color: white;
 }
 #indicators {
-  bottom:0px;
+  position: relative;
   height: 100%;
   overflow: scroll;
   padding-right: 1px;
-  /* padding-bottom: 132px; */
-  position: static;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 600px;
+  bottom: 400px;
 }
 .label {
   display: block!important;
@@ -222,9 +221,6 @@ Bars are also strokes so you have maximum freedom in styling them. */
 @media (min-width: 451px) {
   .ct-bar {
     /*stroke-width: 4%;*/
-  }
-  #indicators {
-    /* top: 80px; */
   }
   .ct-label {
     font-size: 0.8rem!important
