@@ -42,10 +42,9 @@ g.ct-label {
 #indicators {
   position: relative;
   height: 100%;
-  overflow: scroll;
   padding-right: 1px;
-  margin-top: 620px;
-  bottom: 400px;
+  margin-top: 170px;
+  bottom: 100px;
 }
 .label {
   display: block!important;
