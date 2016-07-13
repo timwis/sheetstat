@@ -20,8 +20,8 @@ body {
 }
 #selectors {
   position: fixed;
-  width: 65%;
   background: white;
+  z-index: 1;
 }
 .fa {
   color: #96C9FF!important;
