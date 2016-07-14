@@ -43,8 +43,9 @@ g.ct-label {
   position: relative;
   height: 100%;
   padding-right: 1px;
-  margin-top: 170px;
-  bottom: 100px;
+}
+.indicators-container{
+  padding-bottom: 200px;
 }
 .label {
   display: block!important;
@@ -199,10 +200,6 @@ Bars are also strokes so you have maximum freedom in styling them. */
   }
   .ct-bar {
     stroke-width: 3%;
-  }
-  #indicators {
-	  padding-bottom: 132px!important;
-	top: 130px;
   }
   .ct-label {
     font-size: 0.5rem!important;
