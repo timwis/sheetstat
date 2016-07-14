@@ -8,10 +8,10 @@ permalink: /planning-districts/
   <div id="map-wrapper">
     <div id="map" class="medium-8 column show-for-medium"></div>
 
-    <div id="district-info" class="ptm medium-16 small-24 column end">
+    <div id="district-info" class="medium-16 small-24 column end">
     {% assign categories = site.data.planning_district | group_by: 'Category' %}
     {% assign labels = site.data.planning_district_labels %}
-        <div id="selectors" class="medium 24-column">
+        <div id="selectors" class="medium-16 columns pln prm pvm">
           <!-- Dropdown to select district-->
           <div id="" class="district-selector medium-12 column prm pbs">
             <label for="planning-district">Choose a district</label>
@@ -35,13 +35,16 @@ permalink: /planning-districts/
             </select>
           </div>
         </div>
-      <div id="indicators" class="">
+      <div id="indicators">
+        <div id="top"></div>
+      <div class="indicators-container">
     <!-- Loop over indicators, group by category and display cards-->
       <!-- Category Heading -->
         {% for category in categories %}
-        <div id="top"></div>
-          <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %}">{{ category.name }}
+        <div class="row">
+          <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %} columns">{{ category.name }}
             <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+          </div>
           <div class="row equal-height">
             {% for row in category.items %}
             <!--@timwis: can't seem to get the line below to only append the class `end` for the last row in a category-->
@@ -68,11 +71,14 @@ permalink: /planning-districts/
             </div>
           {% endfor %}
           <!-- End of each chart section with BACK TO TOP link -->
-          <div class="medium-24 column top">
-            <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i><span class="to-top"> back to top</span></a>
+          <div class="row">
+            <div class="medium-24 column top">
+              <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i><span class="to-top"> back to top</span></a>
+            </div>
           </div>
         </div>
       {% endfor %}
+      </div>
     </div>
   </div>
   </div>
