@@ -2,6 +2,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin:0; padding:0;
 }
+#site-wide-alert{
+  margin-bottom:0;
+}
 #map {
   height: 100%;
   left: -20px;
@@ -33,6 +36,10 @@ g.ct-label {
   color: #444444!important;
   text-align: center!important;
   display: inline-block;
+}
+
+aside.related{
+  border-left: 5px solid #cfcfcf;
 }
 
 .district-selector, .category-selector {
@@ -77,7 +84,7 @@ g.ct-label {
   margin-right: 20px;
 }
 .description {
-  /*margin-top: 10px;*/
+  word-wrap: break-word;
 }
 .top {
   border-bottom: 1px dotted #a1a1a1;
@@ -232,4 +239,18 @@ Bars are also strokes so you have maximum freedom in styling them. */
   display: none;
 }
 a.button.icon {
-    width: 220px;
+  width: 220px;
+}
+
+@media screen and (max-width: 39.9375em) {
+  aside.related {
+    border-left: none;
+    border-top: 5px solid #cfcfcf;
+  }
+}
+
+@media screen and (max-width: 63.9375em) and (min-width: 40em) {
+  .app .page-title-container {
+      max-width: 100%;
+  }
+}

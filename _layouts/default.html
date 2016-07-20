@@ -4,9 +4,9 @@
   {% include head.html %}
 
   <body>
-    
+
     <!--Include analytics-->
-    
+
     {% include analytics.html %}
 
     <div class="full" id="application">
@@ -16,13 +16,14 @@
       {% include header.html %}
 
       <div class="main">
-      {{ content }}
+        {{ content }}
       </div>
-      
+
     </div>
-    
+    {% include footer.html %}
+
     {% include scripts.html %}
-    
+
   </body>
 
 </html>

@@ -3,7 +3,7 @@ layout: default
 title: Racial Disparity
 permalink: /racial-disparity/
 ---
-<style>
+<style scoped>
   /* BAR COLORS */
   svg > g:nth-child(2) > g > line:nth-child(1) {
     stroke: #f2e205;
@@ -28,7 +28,7 @@ permalink: /racial-disparity/
     {% assign labels = site.data.racial_disparity_labels %}
 
     <!-- Dropdown to select category-->
-    <div id="" class="category-selector small-24 column ptm pbs">
+    <div class="category-selector small-24 column ptm pbs">
       <div class="clearfix">
         <label for="categories">Choose a category</label>
         <select id="categories" class="right">
@@ -46,26 +46,25 @@ permalink: /racial-disparity/
       <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
 
       {% for row in category.items %}
-        <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator }}
+        <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator | replace: "<", "&lt;" }}
           <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
         </h2>
 
         {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
         <div class="row">
-          <div id="chartArea" class="medium-16 column">
+          <div class="medium-16 column">
             {% if row.dataType == 'Rate' or row.dataType == 'Count' %}
               {% include components/bar-rate.html row=row labels=labels %}{% else %}
               {% include components/bar.html row=row labels=labels %}
-            <div id="img-out"></div>
             {% endif %}
           </div>
 
           <!-- Sidebar-->
           <div class="medium-8 column end">
-            <aside id="secondary" class="related plm-mu" role="complementary">
+            <aside class="related plm-mu">
               <!-- Description of indicator & comments -->
                 {% if row.description %}<p class="source"><strong>Description: </strong><br>
-                  <p class="description">{{ row.description }}</p>{% endif %}
+                  <p class="description">{{ row.description | replace: "<", "&lt;" }}</p>{% endif %}
                 {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
                   <p class="source">{{ row.chartComment }}</p>{% endif %}
                   <!-- Data source(s) -->
@@ -79,7 +78,7 @@ permalink: /racial-disparity/
         </div>
         <!-- End of each chart section with BACK TO TOP link -->
         <div class="medium-24 column top">
-          <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i><span class="to-top" back to top</span></a>
+          <a class="float-right" href="#top"><i class="fa fa-arrow-up"></i> <span class="to-top">back to top</span></a>
         </div>
         {% endfor %}
 

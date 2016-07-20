@@ -21,10 +21,10 @@
   })
 
   // Initialize map
-  var map = L.map(container).setView(defaultCenter, defaultZoom)
+  var map = L.map(container, { zoomControl: false }).setView(defaultCenter, defaultZoom)
 
   // Add basemap
- L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
     minZoon: 12,
     maxZoom: 16
@@ -113,7 +113,7 @@
       .replace(/\-\-+/g, '-')         // Replace multiple - with single -
       .replace(/^\-|\-$/i, '')        // Remove leading/trailing hyphen
   }
-  
+
   // Formats numeric values as percentages
   function percentify (value) {
     return (Math.round(value * 100 * 10) / 10) + '%'
