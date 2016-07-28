@@ -41,38 +41,40 @@ permalink: /planning-districts/
     <!-- Loop over indicators, group by category and display cards-->
       <!-- Category Heading -->
         {% for category in categories %}
-        <div class="row">
-          <h1 id="{{ category.name | slugify }}" class="contrast{% if category.name == 'Social determinants of health' %} first-section{% else %} category-section{% endif %} columns">{{ category.name }}
-            <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
-          </div>
-          <div class="row equal-height">
-            {% for row in category.items %}
-            <div class="medium-8 small-12 column{% if row.Indicator | last %} end{% endif %}{% if row.Central ==  %} hidden{% endif %}" id="card-{{ row.Indicator | slugify }}">
-              <div class="card equal">
-                <div class="content-block">
-                  <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
-                    {% if row.dataType == 'Percentage' %}
-                      {{ row.Central | times: 100 }}%
-                    {% else %}
-                      {{ row.Central }}
+        <div id="{{ category.name | slugify }}" class="offset">
+          <div class="row">
+            <h1 class="contrast columns">{{ category.name }}
+              <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+            </div>
+            <div class="row equal-height">
+              {% for row in category.items %}
+              <div class="medium-8 small-12 column{% if row.Indicator | last %} end{% endif %}{% if row.Central ==  %} hidden{% endif %}" id="card-{{ row.Indicator | slugify }}">
+                <div class="card equal">
+                  <div class="content-block">
+                    <h1 class="indicator-value" id="value-{{ row.Indicator | slugify }}">
+                      {% if row.dataType == 'Percentage' %}
+                        {{ row.Central | times: 100 }}%
+                      {% else %}
+                        {{ row.Central }}
+                      {% endif %}
+                    </h1>
+                    <h3 class="h2">{{ row.Indicator | replace: "<", "&lt;" }}</h3><br>
+                    {% if row.description %}<span class="source"><strong>Description: </strong></span>
+                    <div class="description"><p>{{ row.description | replace: "<", "&lt;"}}</p></div>{% endif %}
+                    {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
+                    {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
+                      {{ row.dataSource }} {% if row.dataSourceYear %}| {{ row.dataSourceYear }}{% endif %}</p>
                     {% endif %}
-                  </h1>
-                  <h3 class="h2">{{ row.Indicator | replace: "<", "&lt;" }}</h3><br>
-                  {% if row.description %}<span class="source"><strong>Description: </strong></span>
-                  <div class="description"><p>{{ row.description | replace: "<", "&lt;"}}</p></div>{% endif %}
-                  {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
-                  {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
-                    {{ row.dataSource }} {% if row.dataSourceYear %}| {{ row.dataSourceYear }}{% endif %}</p>
-                  {% endif %}
-                  <!-- <p><i class="fa fa-twitter fa-2x"></i></p> -->
+                    <!-- <p><i class="fa fa-twitter fa-2x"></i></p> -->
+                  </div>
                 </div>
               </div>
-            </div>
-          {% endfor %}
-          <!-- End of each chart section with BACK TO TOP link -->
-          <div class="row">
-            <div class="medium-24 column top">
-              <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> <span class="to-top">back to top</span></a>
+            {% endfor %}
+            <!-- End of each chart section with BACK TO TOP link -->
+            <div class="row">
+              <div class="medium-24 column top">
+                <a class="float-right" href="#top"> <i class="fa fa-arrow-up"></i> <span class="to-top">back to top</span></a>
+              </div>
             </div>
           </div>
         </div>
