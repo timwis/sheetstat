@@ -8,7 +8,7 @@
     var indicatorSlug = slugify(row.Indicator)
     labels.forEach(function (label) {
       if (!indexedData[label]) indexedData[label] = {}
-      var value = row.dataType === 'Percentage' ? percentify(row[label]) : row[label]
+      var value = row.dataType === 'Percentage' && row[label] !== 'N/A' ? percentify(row[label]) : row[label]
       indexedData[label][indicatorSlug] = value
     })
   })
@@ -73,7 +73,7 @@
     };
     console.log(event.layer)
     updateIndicators(districtName)
-	hideEmptyCards(districtName)
+	// hideEmptyCards(districtName)
 
     // Set dropdown to the clicked planning district
     // and reset polygon style when another is clicked
