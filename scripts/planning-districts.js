@@ -93,18 +93,18 @@
   }
 
   // hide cards when indicator value is empty
-  function hideEmptyCards (districtName) {
-	var indicators = indexedData[districtName] || {}
-	for (var indicator in indicators) {
-		if (!indicators[indicator] || indicators[indicator] === '0%') {
-		console.log(indicators[indicator], 'hiding')
-		  document.getElementById('card-' + indicator).classList.add('hidden')
-  		} else {
-		  console.log(indicators[indicator], 'showing')
-		  document.getElementById('card-' + indicator).classList.remove('hidden')
-		}
-	}
-  }
+  // function hideEmptyCards (districtName) {
+  // ar indicators = indexedData[districtName] || {}
+  // or (var indicator in indicators) {
+  // if (!indicators[indicator] || indicators[indicator] === '0%') {
+  // console.log(indicators[indicator], 'hiding')
+  //   document.getElementById('card-' + indicator).classList.add('hidden')
+  // 		} else {
+  //   console.log(indicators[indicator], 'showing')
+  //   document.getElementById('card-' + indicator).classList.remove('hidden')
+  // }
+  //
+  // }
 
   // Normalize data string contents to avoid breaking charts
   function slugify (text) {
