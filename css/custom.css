@@ -76,6 +76,7 @@ aside.related{
 }
 .description {
   word-wrap: break-word;
+  margin-bottom: -12px;
 }
 .top {
   border-bottom: 1px dotted #a1a1a1;
@@ -236,4 +237,15 @@ a.button.icon {
   .app .page-title-container {
       max-width: 100%;
   }
+}
+
+
+p.small-24.column {
+    display: flex;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    line-height: 13px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
