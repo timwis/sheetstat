@@ -76,7 +76,7 @@ aside.related{
 }
 .description {
   word-wrap: break-word;
-  margin-bottom: -12px;
+  /* margin-bottom: -12px; */
 }
 .top {
   border-bottom: 1px dotted #a1a1a1;
@@ -248,4 +248,8 @@ p.small-24.column {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+p.description {
+    /* margin-top: -12px; */
 }

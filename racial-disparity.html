@@ -63,8 +63,8 @@ permalink: /racial-disparity/
           <div class="medium-8 column end">
             <aside class="related plm-mu">
               <!-- Description of indicator & comments -->
-                {% if row.description %}<p class="source"><strong>Description: </strong><br>
-                  <p class="description">{{ row.description | replace: "<", "&lt;" }}</p>{% endif %}
+                {% if row.description %}<span class="source"><strong>Description: </strong></span>
+                  <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
                 {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
                   <p class="source">{{ row.chartComment }}</p>{% endif %}
                   <!-- Data source(s) -->
