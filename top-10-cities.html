@@ -49,7 +49,7 @@ permalink: /top-10-cities/
             <aside class="related plm-mu">
             <!-- Description of indicator & comments -->
             {% if row.description %}<span class="source"><strong>Description: </strong></span><br>
-              <p class="description">{{ row.description | replace: "<", "&lt;" }}</p>{% endif %}
+              <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span><br>{% endif %}
             {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
               <p class="source">{{ row.chartComment }}</p>{% endif %}
             <!-- Data source(s) -->
