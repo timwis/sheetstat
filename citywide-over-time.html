@@ -49,12 +49,12 @@ permalink: /citywide-over-time/
             <aside class="related plm-mu">
             <!-- Description of indicator & comments -->
               {% if row.description %}<span class="source"><strong>Description: </strong></span><br>
-                <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify}}</span>{% endif %}
+                <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
               {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
                 <p class="source">{{ row.chartComment }}</p>{% endif %}
                 <!-- Data source(s) -->
               {% if row.dataSource %}<span class="source"><strong>Source: </strong></span><br>
-                <p class="source">{{ row.dataSource }} | {{ row.dataSourceYear }}</p>{% endif %}
+                <span class="source">{{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>'}} | {{ row.dataSourceYear }}</span>{% endif %}
             </aside>
           </div>
         </div>

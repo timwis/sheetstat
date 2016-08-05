@@ -34,7 +34,7 @@
     },
     lineSmooth: Chartist.Interpolation.none({
       fillHoles: true, // connects line when missing data points
-    }), 
+    }),
     plugins: [
       Chartist.plugins.tooltip({
         class: 'chartist-tooltip',
@@ -50,6 +50,10 @@
       })
     ],
   }
+  var responsiveOpts = {
+	  
+  }
+
   new Chartist.Line(container, chartData, chartOpts)
 })()
 </script>

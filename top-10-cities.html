@@ -55,10 +55,10 @@ permalink: /top-10-cities/
             <!-- Data source(s) -->
             {% if row.dataSource2 %}
             <p class="source"><strong>Sources:</strong><br>
-              {{ row.dataSource }} | {{ row.dataSourceYear }},<br>
-              {{ row.dataSource2 }} | {{ row.dataSource2Year }}</p>{% else %}
-            <p class="source"><strong>Source:</strong><br>
-              {{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+              {{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }},<br>
+              {{ row.dataSource2 | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSource2Year }}</p>{% else %}
+            <span class="source"><strong>Source:</strong><br>
+              {{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }}</span>
             {% endif %}
 
             </aside>

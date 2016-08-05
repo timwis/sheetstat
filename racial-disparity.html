@@ -69,7 +69,7 @@ permalink: /racial-disparity/
                   <p class="source">{{ row.chartComment }}</p>{% endif %}
                   <!-- Data source(s) -->
               {% if row.dataSource %}<span class="source"><strong>Source: </strong></span><br>
-                <p class="source">{{ row.dataSource }} | {{ row.dataSourceYear }}</p>
+                <span class="source">{{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }}</span>
               {% endif %}
 <!--              <input type="button" id="share-button" class="button" value="Image">-->
 

@@ -62,9 +62,9 @@ permalink: /planning-districts/
                     <h3 class="h2">{{ row.Indicator | replace: "<", "&lt;" }}</h3><br>
                     {% if row.description %}<span class="source"><strong>Description: </strong></span>
                     <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
-                    {% if row.chartComment %}<p class="source"><strong>Note: </strong><br>{{ row.chartComment }}</p>{% endif %}
-                    {% if row.dataSource %}<p class="source"><strong>Source: </strong><br>
-                      {{ row.dataSource }} {% if row.dataSourceYear %}| {{ row.dataSourceYear }}{% endif %}</p>
+                    {% if row.chartComment %}<span class="source"><strong>Note: </strong><br>{{ row.chartComment }}</span><br>{% endif %}
+                    {% if row.dataSource %}<br><span class="source"><strong>Source: </strong><br>
+                      {{ row.dataSource | markdownify |  remove: '<p>' | remove: '</p>' }} {% if row.dataSourceYear %} | {{ row.dataSourceYear }}{% endif %}</span>
                     {% endif %}
                     <!-- <p><i class="fa fa-twitter fa-2x"></i></p> -->
                   </div>
