@@ -4,9 +4,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="A responsive & accessible visualization tool for viewing public health data about Philadelphia">
+  <meta name="author" content="City of Philadelphia">
   <link rel='icon' type='image/x-icon' href="https://cityofphiladelphia.github.io/patterns/images/favicon.ico">
+
+  <meta property="og:title" content="City of Philadelphia Community Health Explorer"/>
+  <meta property="og:url" content="http://cityofphiladelphia.github.io/community-health-explorer"/>
+  <meta property="og:site_name" content="Community Health Explorer"/>
+  <meta property="og:image" content="assets/images/share.png" />
+  <meta name="twitter:card" content="photo" />
+  <meta name="twitter:site" content="@PhiladelphiaGov" />
+  <meta name="twitter:creator" content="@PhilaGovData" />
+  <link rel="image_src" href="assets/images/share.png"/>
+  <meta property="og:description"content="A responsive & accessible visualization tool for viewing public health data about Philadelphia" />
 
   <link href="{{ site.baseurl }}/css/chartist.min.css" rel="stylesheet">
   <link href="https://rawgit.com/Globegitter/chartist-plugin-tooltip/master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
@@ -29,4 +39,6 @@
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js"></script>
     <link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css" rel='stylesheet' />
   {% endif %}
+
+
 </head>
