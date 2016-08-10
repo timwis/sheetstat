@@ -1,7 +1,5 @@
 # Community Health Assessment   
 
-####_Work in progress_: while the data is released, this tool has not yet been publicly announced.
-
 Host, edit and visualize CSV-based data using [Jekyll](http://jekyllrb.com/), [Leaflet](http://leafletjs.com) & [Chartist](https://gionkunz.github.io/chartist-js/)
 
 This application uses the City of Philadelphia pattern portfolio.
