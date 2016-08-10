@@ -2,6 +2,8 @@
 
 Host, edit and visualize CSV-based data using [Jekyll](http://jekyllrb.com/), [Leaflet](http://leafletjs.com) & [Chartist](https://gionkunz.github.io/chartist-js/)
 
+[Read more](https://alpha.phila.gov/posts/open-data-digital-transformation/2016-08-10-citys-new-digital-resource-on-public-health/) about developing the Health Explorer.
+
 This application uses the City of Philadelphia pattern portfolio.
 [Documentation](http://cityofphiladelphia.github.io/patterns/) | [Source](https://github.com/CityOfPhiladelphia/patterns)
 
