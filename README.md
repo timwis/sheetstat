@@ -1,4 +1,4 @@
-# Community Health Assessment   
+# Community Health Explorer  
 
 Host, edit and visualize CSV-based data using [Jekyll](http://jekyllrb.com/), [Leaflet](http://leafletjs.com) & [Chartist](https://gionkunz.github.io/chartist-js/)
 
