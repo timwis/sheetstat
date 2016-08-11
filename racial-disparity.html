@@ -66,7 +66,7 @@ permalink: /racial-disparity/
                 {% if row.description %}<span class="source"><strong>Description: </strong></span>
                   <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
                 {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
-                  <p class="source">{{ row.chartComment }}</p>{% endif %}
+                  <p class="source">{{ row.chartComment | markdownify | remove: '<p>' | remove: '</p>'}}</p>{% endif %}
                   <!-- Data source(s) -->
               {% if row.dataSource %}<span class="source"><strong>Source: </strong></span><br>
                 <span class="source">{{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }}</span>
