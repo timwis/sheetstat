@@ -7,6 +7,8 @@ Host, edit and visualize CSV-based data using [Jekyll](http://jekyllrb.com/), [L
 This application uses the City of Philadelphia pattern portfolio.
 [Documentation](http://cityofphiladelphia.github.io/patterns/) | [Source](https://github.com/CityOfPhiladelphia/patterns)
 
+![](https://CityOfPhiladelphia.github.io/community-health-explorer/assets/images/share.jpg)
+
 ## Managing Data
 - User (Department Staff) Guide available in [Wiki](https://github.com/CityOfPhiladelphia/community-health-explorer/wiki/Maintaining-and-Updating-Data)
 
