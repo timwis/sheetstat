@@ -37,11 +37,12 @@ g.ct-label {
   text-align: center!important;
   display: inline-block;
 }
-
 aside.related{
   border-left: 5px solid #cfcfcf;
 }
-
+aside#secondary a:link, aside#secondary a:visited {
+    font-weight: bold;
+}
 .district-selector, .category-selector {
   padding-left: 0px;
   background-color: white;
