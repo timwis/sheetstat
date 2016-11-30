@@ -1,15 +1,14 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
+---
 title: SheetStat
-baseurl: "/sheetstat" # the subpath of your site, e.g. /blog
-
-# Build settings
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+baseurl: "/sheetstat"
 markdown: kramdown
 kramdown:
   input: GFM

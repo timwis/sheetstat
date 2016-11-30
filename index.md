@@ -1,6 +1,6 @@
 ---
-layout: grid
 title: Police Department
+layout: grid
 ---
 
 # Reported Crime Incidents
