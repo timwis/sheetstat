@@ -1,0 +1,92 @@
+---
+layout: default
+title: Top 10 Cities
+permalink: /top-10-cities/
+---
+<style>
+/* BAR COLORS */
+svg > g:nth-child(2) > g > line:nth-child(1) {
+  stroke: #e7494b;
+}
+svg > g:nth-child(2) > g > line:nth-child(2) {
+  /*stroke: #ef2477;*/
+	stroke: #e7494b;
+}
+</style>
+<div class="row">
+  <div class="medium-24 column">
+
+    <!-- Loop through Indicators and group by Category -->
+    {% assign categories = site.data.top_10_cities | group_by: 'Category' %}
+    {% assign labels = site.data.top_10_cities_labels %}
+
+    <!-- Dropdown to select category-->
+    <div class="category-selector small-24 column ptm pbs">
+      <label for="categories">Choose a category</label>
+      <select id="categories">
+        <optgroup label="Categories">
+          {% for category in categories %}
+            <option value="{{ category.name | slugify }}">{{ category.name }}</option>
+          {% endfor %}
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- Category Headings -->
+    {% for category in categories %}
+    <h1 id="{{ category.name | slugify }}" class="contrast {% if category.name == 'Social determinants of health' %}first-section{% else %}category-section{% endif %}">{{ category.name }}
+      <a href="#{{ category.name | slugify }}" class="header-link"><i class="fa fa-link"></i></a></h1>
+
+      <!-- Indicator Heading (chart title) -->
+      {% for row in category.items %}
+      <h2 id="{{ row.Indicator | slugify }}" class="chart-section">{{ row.Indicator | replace: "<", "&lt;" }}
+        <a href="#{{ row.Indicator | slugify }}" class="header-link"><i class="fa fa-link"></i></a>
+      </h2>
+
+        <!-- Subtitle (if present) -->
+        {% if row.subTitle %}<p>{{ row.subTitle }}</p>{% endif %}
+        <div class="row">
+          <!-- Render charts -->
+          <div class="medium-16 column">
+            {% if row.dataType == 'Rate' or row.dataType == 'Count' %}
+              {% include components/bar-rate.html row=row labels=labels %}{% else %}
+              {% include components/bar.html row=row labels=labels %}
+            {% endif %}
+          </div>
+          <!-- Sidebar -->
+          <div class="medium-8 column end">
+            <aside class="related plm-mu">
+            <!-- Description of indicator & comments -->
+            {% if row.description %}<span class="source"><strong>Description: </strong></span><br>
+              <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
+            {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
+              <p class="source">{{ row.chartComment }}</p>{% endif %}
+            <!-- Data source(s) -->
+            {% if row.dataSource2 %}
+            <p class="source"><strong>Sources:</strong><br>
+              {{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }},<br>
+              {{ row.dataSource2 | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSource2Year }}</p>{% else %}
+            <span class="source"><strong>Source:</strong><br>
+              {{ row.dataSource | markdownify | remove: '<p>' | remove: '</p>' }} | {{ row.dataSourceYear }}</span>
+            {% endif %}
+
+            </aside>
+          </div>
+        </div>
+
+        <!-- End of each chart section with BACK TO TOP link -->
+        <div class="medium-24 column top">
+          <a class="float-right" href="#top"><i class="fa fa-arrow-up"></i> <span class="to-top">back to top</span></a>
+        </div>
+
+      {% endfor %}
+    {% endfor %}
+
+  </div>
+</div>
+<script>
+  document.getElementById('categories').addEventListener('change', function (evt) {
+    var value = this.value;
+    window.location.hash = value;
+  })
+</script>
