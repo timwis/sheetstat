@@ -2,7 +2,7 @@
 title: Community Health Explorer
 baseurl: "/community-health-explorer" # the subpath of your site, e.g. /blog
 
-year: "2015"
+year: "2016"
 
 # Build settings
 markdown: kramdown
