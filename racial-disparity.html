@@ -24,8 +24,8 @@ permalink: /racial-disparity/
 
 <div class="row chart-section">
   <div class="medium-24 column">
-    {% assign categories = site.data.racial_disparity | group_by: 'Category' %}
-    {% assign labels = site.data.racial_disparity_labels %}
+    {% assign categories = site.data[site.year].racial_disparity | group_by: 'Category' %}
+    {% assign labels = site.data[site.year].racial_disparity_labels %}
 
     <!-- Dropdown to select category-->
     <div class="category-selector small-24 column ptm pbs">

@@ -7,8 +7,8 @@ permalink: /citywide-over-time/
   <div class="medium-24 column">
 
   <!-- Loop through Indicators and group by Category -->
-  {% assign categories = site.data.citywide_over_time | group_by: 'Category' %}
-  {% assign labels = site.data.citywide_over_time_labels %}
+  {% assign categories = site.data[site.year].citywide_over_time | group_by: 'Category' %}
+  {% assign labels = site.data[site.year].citywide_over_time_labels %}
 
     <!-- Dropdown to select category-->
     <div class="category-selector small-24 column ptm pbs">

@@ -3,13 +3,12 @@ layout: default
 title: Top 10 Cities
 permalink: /top-10-cities/
 ---
-
 <div class="row">
   <div class="medium-24 column">
 
     <!-- Loop through Indicators and group by Category -->
-    {% assign categories = site.data.top_10_cities | group_by: 'Category' %}
-    {% assign labels = site.data.top_10_cities_labels %}
+    {% assign categories = site.data[site.year].top_10_cities | group_by: 'Category' %}
+    {% assign labels = site.data[site.year].top_10_cities_labels %}
 
     <!-- Dropdown to select category-->
     <div class="category-selector small-24 column ptm pbs">
