@@ -49,8 +49,9 @@ permalink: /top-10-cities/
             <!-- Description of indicator & comments -->
             {% if row.description %}<span class="source"><strong>Description: </strong></span><br>
               <span class="description">{{ row.description | replace: "<", "&lt;" | markdownify }}</span>{% endif %}
-            {% if row.chartComment %}<span class="source"><strong>Note: </strong></span><br>
-              <p class="source">{{ row.chartComment }}</p>{% endif %}
+            {% if row.chartComment || row.Note %}<span class="source"><strong>Note: </strong></span><br> {% endif %}
+            {% if row.chartComment %}  <p class="source">{{ row.chartComment }}</p>{% endif %}
+            {% if row.Note %} <p class="source">{{ row.Note }}</p>{% endif %}
             <!-- Data source(s) -->
             {% if row.dataSource2 %}
             <p class="source"><strong>Sources:</strong><br>
