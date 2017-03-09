@@ -129,11 +129,6 @@ Points on line charts are actually just very short strokes. This allows you to c
   /* Make your points appear as squares */
   /*  stroke-linecap: square;*/
 }
-
-.ct-line-label {
-  stroke: #3276d2;
-}
-
 .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
   fill: #2176d2;
 }
