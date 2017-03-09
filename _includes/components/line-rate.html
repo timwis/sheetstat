@@ -27,15 +27,17 @@
         return value
       }
     },
+    axisY: {
+      labelOffset: {'x': -20 },
+      offset: 60
+    },
     lineSmooth: Chartist.Interpolation.none({
       fillHoles: true,
     }),
     plugins: [
-      Chartist.plugins.tooltip({
-        class: 'chartist-tooltip',
-        tooltipFnc: function(_, value) {
-          return (+value).toLocaleString();
-        }
+      Chartist.plugins.ctPointLabels({
+        labelClass: 'ct-line-label',
+        textAnchor: 'middle'
       }),
       Chartist.plugins.ctAccessibility({
         caption: '{{ row.Indicator }}',

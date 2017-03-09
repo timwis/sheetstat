@@ -24,7 +24,9 @@
       labelInterpolationFnc: function (value) {
         // do whatever math operation you want here
         return Math.round(value * 1000) / 10 + '%';
-      }
+      },
+      labelOffset: {'x': -20 },
+      offset: 60
     },
     axisX: {
       showGrid: false //,
@@ -36,9 +38,11 @@
       fillHoles: true, // connects line when missing data points
     }),
     plugins: [
-      Chartist.plugins.tooltip({
-        class: 'chartist-tooltip',
-        tooltipFnc: function(_, value) {
+      Chartist.plugins.ctPointLabels({
+        textAnchor: 'middle',
+        labelClass: 'ct-line-label',
+        labelInterpolationFnc: function (value) {
+          // do whatever math operation you want here
           return Math.round(value * 1000) / 10 + '%';
         }
       }),
