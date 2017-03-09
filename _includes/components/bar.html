@@ -81,6 +81,15 @@
         }
       }]
     ]
-  new Chartist.Bar(container, chartData, chartOpts, responsiveOpts)
+  var chart = new Chartist.Bar(container, chartData, chartOpts, responsiveOpts);
+  chart.on('draw', function (event) {
+    if (event.type === 'label' && event.axis.units.pos === 'y') {
+      if (!chart.supportsForeignObject) {
+        event.element.attr({
+           y: event.y - event.height / 2
+        });
+      }
+    }
+  });
   })()
 </script>
